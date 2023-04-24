@@ -23,5 +23,6 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     }
-    
-})
+},{collection: 'users'});
+
+module.exports = mongoose.model('users', UserSchema);

@@ -21,4 +21,6 @@ const PostSchema = new Schema({
         required: true,
     },
     likes: { type:  Number, default: 0 },
-})
+}, {collection: 'posts'});
+
+module.exports = mongoose.model('post', PostSchema);

@@ -17,4 +17,6 @@ const CommentSchema = new Schema({
         required: true,
     },
     likes: { type:  Number, default: 0 },
-});
+}, {collection: 'comments'});
+
+module.exports = mongoose.model('comment', CommentSchema);
