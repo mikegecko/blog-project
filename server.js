@@ -11,11 +11,11 @@ const { db_connect } = require('./utils/db');
 const PORT = process.env.PORT || 3000;
 
 //Routers
-// const indexRouter = require('./routes/index');
-// const inventoryRouter = require('./routes/inventory');
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const commentsRouter = require('./routes/comments');
+const postsRouter = require('./routes/posts');
 // const usersRouter = require('./routes/users');
-// const authRouter = require('./routes/auth');
-
 
 const app = express();
 
@@ -37,8 +37,11 @@ app.use(cookieParser());
 db_connect();
 
 //Routes
-// app.use('/api/inventory', inventoryRouter);
-// app.use('/api/auth', authRouter);
+app.use('/', indexRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/comments', commentsRouter);
+app.use('/api/posts', postsRouter);
+// app.use('/api/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
