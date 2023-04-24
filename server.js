@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //Connect to database
-
+db_connect();
 
 //Routes
 // app.use('/api/inventory', inventoryRouter);
