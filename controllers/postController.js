@@ -22,7 +22,9 @@ module.exports = {
         newPost.save().then((post) => res.json(post)).catch((err) => res.json(err));
     },
     updatePost: async (req, res) => {
+        Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((post) => res.json(post)).catch((err) => res.json(err));
+    },
+    deletePost: async (req, res) => {
         
     },
-    deletePost: async (req, res) => {},
 };
