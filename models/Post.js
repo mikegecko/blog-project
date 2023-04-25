@@ -21,6 +21,8 @@ const PostSchema = new Schema({
         required: true,
     },
     likes: { type:  Number, default: 0 },
+    comments: [{ type: Schema.Types.ObjectId, ref: 'comment'}],
+    published: { type: Boolean, default: false },
 }, {collection: 'posts'});
 
 module.exports = mongoose.model('post', PostSchema);
