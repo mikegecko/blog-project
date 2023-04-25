@@ -37,4 +37,9 @@ module.exports = {
             return next(error);
         }
     },
+    login: async (req, res, next) => {},
+    logout: async (req, res, next) => {},
+    verifyToken: async (req, res, next) => {},
+    refreshToken: async (req, res, next) => {},
 }
+
