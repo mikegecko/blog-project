@@ -34,8 +34,12 @@ module.exports = {
     },
     updateUser: async (req, res, next) => {
         try {
-            //Add bcrypt hashing for passwords
-            const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+            const saltRounds = 10;
+            const hash = await bcrypt.hash(req.body.password, saltRounds);
+            const updatedUser = await User.findByIdAndUpdate(req.params.id, {
+                ...req.body,
+                password: hash,
+            });
             res.json(updatedUser);
         } catch (error) {
             return next(error);
