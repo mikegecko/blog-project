@@ -1,4 +1,6 @@
 const User =  require('../models/user');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
@@ -19,7 +21,12 @@ module.exports = {
     },
     createUser: async (req, res, next) => {
         try{
-            const newUser = await new User(req.body).save();
+            const saltRounds = 10;
+            const hash = await bcrypt.has(req.body.password, saltRounds);
+            const newUser = await new User({
+                ...req.body,
+                password: hash,
+            }).save();
             res.json(newUser);
         }catch(error){
             return next(error);
@@ -27,6 +34,7 @@ module.exports = {
     },
     updateUser: async (req, res, next) => {
         try {
+            //Add bcrypt hashing for passwords
             const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
             res.json(updatedUser);
         } catch (error) {
@@ -43,6 +51,13 @@ module.exports = {
     },
     login: async (req, res, next) => {
         try {
+            const {username, password} = req.body;
+            if(!username || !password){
+                res.status(401).json({success: false, message: 'Please provide username and password'});
+            }
+            if(!process.env.JWT_SECRET){
+                res.status(500).json({success: false, message: 'Internal server error'});
+            }
             
         } catch (error) {
             return next(error);
