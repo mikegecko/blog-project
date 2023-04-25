@@ -19,12 +19,12 @@ module.exports = {
     },
     createPost: async (req, res) => {
         const newPost = new Post(req.body);
-        newPost.save().then((post) => res.json(post)).catch((err) => res.json(err));
+        newPost.save().then((post) => res.json(post)).catch((err) => next(err));
     },
     updatePost: async (req, res) => {
-        Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((post) => res.json(post)).catch((err) => res.json(err));
+        Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((post) => res.json(post)).catch((err) => next(err));
     },
     deletePost: async (req, res) => {
-        
+        Post.findByIdAndDelete(req.params.id).then((post) => res.json(post)).catch((err) => next(err));
     },
 };
