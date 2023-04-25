@@ -111,8 +111,29 @@ module.exports = {
     },
     refreshToken: async (req, res, next) => {
         try {
-            
-        } catch (error) {
+            const authHeader = req.headers.authorization;
+            if(!authHeader){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const token = authHeader.split(' ')[1];
+            if(!process.env.JWT_SECRET){
+                res.status(500).json({success: false, message: 'Internal server error'});
+            }
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if(!decoded){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const user = await User.findById(decoded.id);
+            if(!user){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const newToken = jwt.sign({
+                id: user._id,
+                username: user.username,
+            }, process.env.JWT_SECRET, {expiresIn: '1h'});
+            res.json({success: true, message: 'Token refreshed', token: newToken});
+        }
+         catch (error) {
             return next(error);
         }
     },
