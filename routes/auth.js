@@ -9,6 +9,6 @@ router.post('/login', authController.login);
 //POST logout
 router.post('/logout', authController.logout);
 //GET Auth status / verify
-router.get('/verify', authController.verify);
+router.get('/verify', authController.verifyToken);
 
 module.exports = router;
