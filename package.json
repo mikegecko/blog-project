@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && vite\"",
-    "build": "cd client && npm run build"
+    "start:client": "cd client && npm run vite",
+    "start:cms": "cd cms && npm run vite",
+    "dev": "concurrently \"nodemon server.js\" \"npm run start:cms\" \"npm run start:client\"",
+    "build": " concurrently \"cd client && npm run build\" \"cd cms && npm run build\""
   },
   "repository": {
     "type": "git",
