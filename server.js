@@ -21,7 +21,7 @@ const app = express();
 
 // CORS 
 app.use(cors({
-  origin: '*',
+  origin: '*', // Change to origin: ['https://example.com', 'https://another.example.com']
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
