@@ -1,15 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const postController = require('../controllers/postController');
 //GET most recent post
-router.get('/', async (req, res) => {
-    try{
-        
-
-
-    }catch(err){
-        return next(err);
-    }
-});
+router.get('/', postController.getAllPosts);
 
 module.exports = router;
