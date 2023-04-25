@@ -52,31 +52,62 @@ module.exports = {
     login: async (req, res, next) => {
         try {
             const {username, password} = req.body;
+            const user = await User.findOne({username});
             if(!username || !password){
                 res.status(401).json({success: false, message: 'Please provide username and password'});
             }
             if(!process.env.JWT_SECRET){
                 res.status(500).json({success: false, message: 'Internal server error'});
             }
-            
+            if(!user){
+                res.status(401).json({success: false, message: 'User not found'});
+            }
+            if(user && bcrypt.compareSync(password, user.password)){
+                const token = jwt.sign({
+                    id: user._id,
+                    username: user.username,
+                }, process.env.JWT_SECRET, {expiresIn: '1h'});
+                res.json({success: true, message: 'User logged in', token});
+            }
+            else{
+                res.status(401).json({success: false, message: 'Incorrect username or password'});
+            }
         } catch (error) {
             return next(error);
         }
     },
     logout: async (req, res, next) => {
         try {
-            
+            //Destroy the token
+            res.json({success: true, message: 'User logged out'});
         } catch (error) {
             return next(error);
         }
     },
     verifyToken: async (req, res, next) => {
         try {
+            const authHeader = req.headers.authorization;
+            if(!authHeader){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const token = authHeader.split(' ')[1];
+            if(!process.env.JWT_SECRET){
+                res.status(500).json({success: false, message: 'Internal server error'});
+            }
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if(!decoded){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const user = await User.findById(decoded.id);
+            if(!user){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            req.user = user;
+            return next();
             
         } catch (error) {
             return next(error);
         }
-    
     },
     refreshToken: async (req, res, next) => {
         try {
