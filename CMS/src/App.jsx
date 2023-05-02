@@ -17,7 +17,7 @@ function App() {
       <Box>
         <h2>Test</h2>
         <Editor
-        apiKey="4qrgkluvd9gc3crk4vd7ivs123gg4x4insv5wtjov2n48uz4"
+        apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
           onInit={(evt, editor) => (editorRef.current = editor)}
           initialValue="<p>Enter your content here</p>"
           init={{
