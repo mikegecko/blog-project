@@ -7,6 +7,7 @@ import Root, { rootLoader } from "./routes/Root";
 import PostView, { postViewLoader } from './routes/PostView';
 import ErrorPage from './routes/ErrorPage';
 import Settings, { settingsLoader } from './routes/Settings';
+import PostEditor, { postEditorLoader } from './routes/PostEditor';
 
 const router = createBrowserRouter([{
   path: "/",
@@ -20,9 +21,24 @@ const router = createBrowserRouter([{
       loader: homeLoader,
     },
     {
+      path:"/posts",
+      element: <PostView />,
+      loader: postViewLoader,
+    },
+    {
       path:"/post/:id",
       element: <PostView />,
       loader: postViewLoader,
+    },
+    {
+      path:"/edit",
+      element: <PostEditor />,
+      loader: postEditorLoader,
+    },
+    {
+      path:"/edit/:id",
+      element: <PostEditor />,
+      loader: postEditorLoader,
     },
     {
       path:"settings",
