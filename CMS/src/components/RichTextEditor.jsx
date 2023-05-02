@@ -2,7 +2,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useRef } from "react";
 import { Button } from "@mui/material";
 
-export default function PostEditor() {
+export default function RichTextEditor() {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
