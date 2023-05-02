@@ -1,5 +1,9 @@
 export default function Settings() {
-    return(<></>)
+    return(
+    <>
+        <h1>Settings</h1>
+    </>
+    )
 }
 
 export async function settingsLoader() {

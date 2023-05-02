@@ -1,12 +1,18 @@
-import { Route } from "react-router-dom";
-import Home from "./Home";
+import { Link, Outlet } from "react-router-dom";
+import '../App.css';
+import { Box } from "@mui/material";
 
 export default function Root () {
     return(
-        <>
-        <h1>Root</h1>
-        <Route path="/home" element={<Home />} />
-        </>
+        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+            <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '20vw'}}>
+                <Link to={`home`}>Home</Link>
+                <Link to={`settings`}>Settings</Link>
+            </Box>
+            <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '60vw'}}>
+                <Outlet />
+            </Box>
+        </Box>
     )
 }
 
