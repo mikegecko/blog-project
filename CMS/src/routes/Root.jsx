@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import '../App.css';
 import { Box } from "@mui/material";
-import { useState } from "react";
 
 export default function Root () {
     return(
