@@ -54,9 +54,10 @@ export const verify = async (token) => {
   }
 };
 
-export const getUsers = async () => {
+export const getUsers = async (token) => {
     try {
-    const response = await axios.get("/api/auth/users");
+    const headers = { Authorization: `Bearer ${token}` };
+    const response = await axios.get("/api/auth/users", { headers });
     return response.data;
   } catch (error) {
     console.error(error);
