@@ -10,7 +10,7 @@ import ErrorPage from './routes/ErrorPage';
 import Settings, { settingsLoader } from './routes/Settings';
 import PostEditor, { postEditorLoader } from './routes/PostEditor';
 
-const router = createBrowserRouter([{
+export const router = createBrowserRouter([{
   path: "/",
   element: <Root />,
   errorElement: <ErrorPage />,
@@ -53,11 +53,14 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />,
   loader: loginLoader,
 }]);
-// Redirects to login if no token is found
-// const jwt = localStorage.getItem('blog-token');
-// if(!jwt){
-//   router.navigate('/login');
-// }
+//Redirects to login if no token is found
+const jwt = localStorage.getItem('blog-token');
+if(!jwt){
+  router.navigate('/login');
+}
+if(jwt){
+  router.navigate('/home');
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
