@@ -1,5 +1,9 @@
 
 export default function Home () {
+
+    
+
+
     return(
         <>
             <h1>Home</h1>
@@ -17,5 +21,8 @@ export default function Home () {
 }
 
 export async function homeLoader () {
+    //Return the data we need -> access data using useLoaderData()
+
+
     return null;
 }

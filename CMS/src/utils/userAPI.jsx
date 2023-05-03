@@ -1,7 +1,9 @@
+import axios from 'axios';
 
 export const createUser = async (username, password, email, name, isAdmin) => {
     try{
-        const response = await axios.post('/api/signup', {username, password, email, name, isAdmin});
+        const response = await axios.post('/api/auth/signup', {username, password, email, name, isAdmin});
+        return response.data;
     }
     catch(error){
         console.error(error);
