@@ -1,12 +1,17 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox,  FormControlLabel, TextField, Typography } from "@mui/material";
-import { useState } from "react";
-import { createUser, logout } from "../utils/userAPI";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox,  FormControlLabel, List, ListItem, ListItemButton, ListItemIcon, ListItemText, TextField, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { createUser, getUsers, logout } from "../utils/userAPI";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { router } from "../main";
+import jwt_decode from "jwt-decode";
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function Settings() {
 
     const [newUser, setNewUser] = useState({username: "", password: "", email: "", name: "", isAdmin: false});
+    const [token , setToken] = useState(localStorage.getItem('blog-token'));
+    const [user, setUser] = useState({});
+    const [userList, setUserList] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,7 +43,28 @@ export default function Settings() {
             )
         }
     }
-    
+
+    const retriveUserList = (token) => {
+        const res = getUsers(token);
+        res.then((data) => { 
+            setUserList(data);
+            //console.log(data);
+        }).catch((err) => console.log(err));
+    }
+
+    const userInfo = (token) => {
+        const decoded = jwt_decode(token);
+        return(decoded);
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('blog-token')
+        if(token) {
+            setUser(userInfo(token));
+            retriveUserList(token);
+        }
+    },[])
+
   return (
     <Box>
       <h1>Settings</h1>
@@ -87,6 +113,27 @@ export default function Settings() {
 
         </AccordionDetails>
       </Accordion>
+      <Accordion sx={{width: "100%"}} >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>User List</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <List sx={{width: "100%"}}>
+            {userList.map((user) => {
+                return(
+                    <ListItem key={user.id} disablePadding >
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <PersonIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={user.username} secondary={user.email} />
+                        </ListItemButton>
+                    </ListItem>
+                )
+            })}
+            </List>
+        </AccordionDetails>
+      </Accordion>
       </Box>
       <h4>Other tools</h4>
       <Box>
@@ -98,11 +145,12 @@ export default function Settings() {
             <Box sx={{display:  "flex", flexDirection: "column", alignItems: "center", gap: ".5rem", width: "100%"}}>
             <Typography>Auth Status:{authStatus()}</Typography>
             <Button onClick={handleLogout} variant="contained">Logout</Button>
-            <Typography>Username:</Typography>
-            <Typography>Email:</Typography>
-            <Typography>Name:</Typography>
-            <Typography>Admin:</Typography>
-            <Typography>Created:</Typography>
+            <Typography>Username:{user.username}</Typography>
+            <Typography>Email:{user.email}</Typography>
+            <Typography>Name:{user.name}</Typography>
+            <Typography>Admin:{user.isAdmin ? "True" : "False"}</Typography>
+            <Typography>ID:{user.id}</Typography>
+            <Typography>Created:{user.created}</Typography>
             <Typography>Last Login:</Typography>
             </Box>
         </AccordionDetails>
