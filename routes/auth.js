@@ -10,5 +10,8 @@ router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 //GET Auth status / verify
 router.get('/verify', authController.verifyToken);
-
+//GET User
+router.get('/user/:id', authController.verifyTokenAdminInternal, authController.getUserById);
+// Get All users
+router.get('/users',authController.verifyTokenAdminInternal, authController.getAllUsers);
 module.exports = router;
