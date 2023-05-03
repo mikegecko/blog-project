@@ -15,15 +15,29 @@ export const createUser = async (username, password, email, name, isAdmin) => {
   }
 };
 
-export const updateUser = async (
-  username,
-  password,
-  email,
-  name,
-  isAdmin
-) => {};
+export const updateUser = async (userid, username, password, email, name, isAdmin) => {
+  try {
+    const response = await axios.put(`/api/auth/user/${userid}`, {
+      username,
+      password,
+      email,
+      name,
+      isAdmin,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-export const deleteUser = async (username) => {};
+export const deleteUser = async (userid) => {
+  try {
+    const response = await axios.delete(`/api/auth/user/${userid}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export const login = async (username, password) => {
   try {
@@ -46,7 +60,7 @@ export const verify = async (token) => {
   try {
     const headers = { Authorization: `Bearer ${token}` };
     const response = await axios.get("/api/auth/verify", {
-        headers,
+      headers,
     });
     return response.data;
   } catch (error) {
@@ -55,7 +69,7 @@ export const verify = async (token) => {
 };
 
 export const getUsers = async (token) => {
-    try {
+  try {
     const headers = { Authorization: `Bearer ${token}` };
     const response = await axios.get("/api/auth/users", { headers });
     return response.data;
@@ -65,7 +79,7 @@ export const getUsers = async (token) => {
 };
 
 export const getUser = async (userid) => {
-    try {
+  try {
     const response = await axios.get(`/api/auth/user/${userid}`);
     return response.data;
   } catch (error) {
