@@ -9,6 +9,7 @@ import PostView, { postViewLoader } from './routes/PostView';
 import ErrorPage from './routes/ErrorPage';
 import Settings, { settingsLoader } from './routes/Settings';
 import PostEditor, { postEditorLoader } from './routes/PostEditor';
+import { verify } from './utils/userAPI';
 
 export const router = createBrowserRouter([{
   path: "/",
@@ -59,7 +60,7 @@ if(!jwt){
   router.navigate('/login');
 }
 if(jwt){
-  router.navigate('/home');
+  verify(localStorage.getItem('blog-token')).then((res) => {router.navigate('/home'); console.log(res)}).catch(err => console.log(err))
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
