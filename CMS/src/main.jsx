@@ -54,7 +54,7 @@ const router = createBrowserRouter([{
   loader: loginLoader,
 }]);
 // Redirects to login if no token is found
-// const jwt = localStorage.getItem('blogToken');
+// const jwt = localStorage.getItem('blog-token');
 // if(!jwt){
 //   router.navigate('/login');
 // }
