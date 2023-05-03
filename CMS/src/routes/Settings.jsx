@@ -32,12 +32,14 @@ export default function Settings() {
     }
 
     const authStatus = () => {
-        if(localStorage.getItem('blog-token')) {
+        //BUG: Token shows authorized even if expired
+        const token = localStorage.getItem('blog-token');
+        if(token) {
             return(
                 <Typography sx={{color: "green"}}>Authorized</Typography>
             )
         }
-        if(!localStorage.getItem('blog-token')) {
+        if(!token) {
             return(
                 <Typography sx={{color: "red"}}>Unauthorized</Typography>
             )
@@ -119,7 +121,7 @@ export default function Settings() {
         </AccordionSummary>
         <AccordionDetails>
             <List sx={{width: "100%"}}>
-            {userList.map((user) => {
+            {userList ? userList.map((user) => {
                 return(
                     <ListItem key={user.id} disablePadding >
                         <ListItemButton>
@@ -130,7 +132,7 @@ export default function Settings() {
                         </ListItemButton>
                     </ListItem>
                 )
-            })}
+            }): null}
             </List>
         </AccordionDetails>
       </Accordion>
