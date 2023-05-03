@@ -1,15 +1,26 @@
 import { useState } from "react";
 import { login } from "../utils/userAPI";
-import { Box, TextField } from "@mui/material";
+import { Box, Button, TextField, ThemeProvider } from "@mui/material";
+import { darkTheme, lightTheme } from '../components/Themes';
+import { router } from "../main";
 
 export default function Login() {
-
+    const [colorMode, setColorMode] = useState('light');
     const [loginInfo, setLoginInfo] = useState({username: "", password: ""});
+
+    const themeControl = () => {
+        if(colorMode === 'light') {
+            return(darkTheme);
+        }
+        if(colorMode === 'dark') {
+            return(lightTheme);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const res = login(loginInfo.username, loginInfo.password);
-        res.then((data) => console.log(data)).catch((err) => console.log(err));
+        res.then((data) => ( data.success ? router.navigate('/home') : console.log(data))).catch((err) => console.log(err));
         setLoginInfo({username: "", password: ""});
     }
 
@@ -19,15 +30,20 @@ export default function Login() {
     }
 
     return (
-        <>
+        <ThemeProvider theme={themeControl()}>
+        <Box>
             <h1>Login</h1>
-            <Box>
+            
             <form onSubmit={handleSubmit}>
-                <TextField type="text" label="Username" name="username" value={loginInfo.username} onChange={handleChange} />
-                <TextField type="password" label="Password" name="password" value={loginInfo.password} onChange={handleChange} />
+            <Box sx={{display: "flex", flexDirection: "column", gap: "10px"}}>
+                <TextField variant="outlined" type="text" label="Username" name="username" value={loginInfo.username} onChange={handleChange} />
+                <TextField variant="outlined" type="password" label="Password" name="password" value={loginInfo.password} onChange={handleChange} />
+                <Button variant="contained" type="submit">Login</Button>
+                </Box>
             </form>
-            </Box>
-        </>
+            
+        </Box>
+        </ThemeProvider>
     )
 }
 
