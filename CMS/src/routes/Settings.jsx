@@ -2,6 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox, F
 import { useState } from "react";
 import { createUser, logout } from "../utils/userAPI";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { router } from "../main";
 
 export default function Settings() {
 
@@ -22,6 +23,7 @@ export default function Settings() {
     const handleLogout = () => {
         console.log('Logged out');
         logout();
+        router.navigate('/login');
     }
 
     const authStatus = () => {
