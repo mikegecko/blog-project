@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Login, { loginLoader } from './routes/Login';
 import Home, { homeLoader } from "./routes/Home";
 import Root, { rootLoader } from "./routes/Root";
 import PostView, { postViewLoader } from './routes/PostView';
@@ -46,7 +47,17 @@ const router = createBrowserRouter([{
       loader: settingsLoader,
     }
   ],
-},]);
+},{
+  path: "/login",
+  element: <Login />,
+  errorElement: <ErrorPage />,
+  loader: loginLoader,
+}]);
+// Redirects to login if no token is found
+// const jwt = localStorage.getItem('blogToken');
+// if(!jwt){
+//   router.navigate('/login');
+// }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
