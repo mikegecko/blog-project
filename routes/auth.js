@@ -6,6 +6,8 @@ const authController = require('../controllers/authController');
 router.post('/signup', authController.createUser);
 //POST login
 router.post('/login', authController.login);
+//POST admin login
+router.post('/login-admin', authController.loginAdmin);
 //POST logout
 router.post('/logout', authController.logout);
 //GET Auth status / verify
