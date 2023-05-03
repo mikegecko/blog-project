@@ -24,7 +24,9 @@ export const login = async (username, password) => {
     }
 };
 
-export const logout = async () => {};
+export const logout = async () => {
+    localStorage.removeItem('blog-token');
+};
 
 export const getUsers = async () => {};
 
