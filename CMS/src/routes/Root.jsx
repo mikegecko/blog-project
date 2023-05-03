@@ -21,12 +21,12 @@ export default function Root () {
     }
 
     useEffect(() => {
-        
+
     },[])
 
     return(
         <ThemeProvider theme={themeControl()}>
-        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
             <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '20vw', gap: '1rem'}}>
                 <Link to={`home`}>Home</Link>
                 <Link to={`posts`}>Posts</Link>
