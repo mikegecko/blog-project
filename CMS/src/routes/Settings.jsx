@@ -67,6 +67,25 @@ export default function Settings() {
       </Accordion>
       </Box>
       <h4>Other tools</h4>
+      <Box>
+      <Accordion sx={{width: "100%"}} >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Account Info</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <Box sx={{display:  "flex", flexDirection: "column", alignItems: "center", gap: ".5rem", width: "100%"}}>
+            <Typography>Auth Status:</Typography>
+            <Button variant="contained">Logout</Button>
+            <Typography>Username:</Typography>
+            <Typography>Email:</Typography>
+            <Typography>Name:</Typography>
+            <Typography>Admin:</Typography>
+            <Typography>Created:</Typography>
+            <Typography>Last Login:</Typography>
+            </Box>
+        </AccordionDetails>
+      </Accordion>
+      </Box>
     </Box>
   );
 }
