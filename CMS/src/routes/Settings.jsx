@@ -124,11 +124,11 @@ export default function Settings() {
             {userList ? userList.map((user) => {
                 return(
                     <ListItem key={user.id} disablePadding >
-                        <ListItemButton>
+                        <ListItemButton key={user.id}>
                             <ListItemIcon>
                                 <PersonIcon />
                             </ListItemIcon>
-                            <ListItemText primary={user.username} secondary={user.email} />
+                            <ListItemText key={user.id} primary={user.username} secondary={user.email} />
                         </ListItemButton>
                     </ListItem>
                 )
