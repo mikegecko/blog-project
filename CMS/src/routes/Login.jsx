@@ -3,6 +3,7 @@ import { login } from "../utils/userAPI";
 import { Box, Button, TextField, ThemeProvider } from "@mui/material";
 import { darkTheme, lightTheme } from '../components/Themes';
 import { router } from "../main";
+import { adminLogin } from "../utils/userAPI";
 
 export default function Login() {
     const [colorMode, setColorMode] = useState('light');
@@ -19,7 +20,7 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const res = login(loginInfo.username, loginInfo.password);
+        const res = adminLogin(loginInfo.username, loginInfo.password);
         res.then((data) => (console.log(data), data.success ? router.navigate('/home') : console.log(data))).catch((err) => console.log(err));
         setLoginInfo({username: "", password: ""});
     }

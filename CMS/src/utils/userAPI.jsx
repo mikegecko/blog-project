@@ -52,6 +52,19 @@ export const login = async (username, password) => {
   }
 };
 
+export const adminLogin = async (username, password) => {
+    try {
+        const response = await axios.post("/api/auth/login-admin", {
+          username,
+          password,
+        });
+        localStorage.setItem("blog-token", response.data.token);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+};
+
 export const logout = async () => {
   localStorage.removeItem("blog-token");
 };
