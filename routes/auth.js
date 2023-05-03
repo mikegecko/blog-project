@@ -12,6 +12,10 @@ router.post('/logout', authController.logout);
 router.get('/verify', authController.verifyToken);
 //GET User
 router.get('/user/:id', authController.verifyTokenAdminInternal, authController.getUserById);
-// Get All users
+//GET All users
 router.get('/users',authController.verifyTokenAdminInternal, authController.getAllUsers);
+//PUT Update user
+router.put('/user/:id',authController.verifyTokenInternal, authController.updateUser);
+//DELETE Delete user
+router.delete('/user/:id',authController.verifyTokenInternal, authController.deleteUser);
 module.exports = router;
