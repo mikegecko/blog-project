@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox, FormControl, FormControlLabel, Input, TextField, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox,  FormControlLabel, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { createUser, logout } from "../utils/userAPI";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

@@ -4,6 +4,7 @@ import '../App.css';
 import { Box } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme, lightTheme } from '../components/Themes';
+import { useEffect } from 'react';
 
 export default function Root () {
     const [colorMode, setColorMode] = useState('light');
@@ -19,7 +20,9 @@ export default function Root () {
         }
     }
 
-    
+    useEffect(() => {
+        
+    },[])
 
     return(
         <ThemeProvider theme={themeControl()}>
