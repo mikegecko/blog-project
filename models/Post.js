@@ -19,10 +19,20 @@ const PostSchema = new Schema({
         type: String,
         required: true,
     },
-    date: {
+    created: {
         type: Date,
         default: Date.now,
         required: true,
+    },
+    edited: {
+        type: Date,
+        default: Date.now,
+        required: false,
+    },
+    publishDate: {
+        type: Date,
+        default: Date.now,
+        required: false,
     },
     likes: { type:  Number, default: 0 },
     comments: [{ type: Schema.Types.ObjectId, ref: 'comment'}],
