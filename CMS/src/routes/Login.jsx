@@ -20,7 +20,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const res = login(loginInfo.username, loginInfo.password);
-        res.then((data) => ( data.success ? router.navigate('/home') : console.log(data))).catch((err) => console.log(err));
+        res.then((data) => (console.log(data), data.success ? router.navigate('/home') : console.log(data))).catch((err) => console.log(err));
         setLoginInfo({username: "", password: ""});
     }
 
