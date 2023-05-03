@@ -56,4 +56,11 @@ export const verify = async (token) => {
 
 export const getUsers = async () => {};
 
-export const getUser = async () => {};
+export const getUser = async (userid) => {
+    try {
+    const response = await axios.get(`/api/auth/user/${userid}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
