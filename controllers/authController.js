@@ -22,7 +22,7 @@ module.exports = {
     createUser: async (req, res, next) => {
         try{
             const saltRounds = 10;
-            const hash = await bcrypt.has(req.body.password, saltRounds);
+            const hash = await bcrypt.hash(req.body.password, saltRounds);
             const newUser = await new User({
                 ...req.body,
                 password: hash,
