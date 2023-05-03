@@ -70,8 +70,9 @@ module.exports = {
                 const token = jwt.sign({
                     id: user._id,
                     username: user.username,
+                    isAdmin: user.isAdmin,
                 }, process.env.JWT_SECRET, {expiresIn: '1h'});
-                res.json({success: true, message: 'User logged in', token});
+                res.json({success: true, uid:user._id, username: user.username, isAdmin: user.isAdmin, message: 'User logged in', token});
             }
             else{
                 res.status(401).json({success: false, message: 'Incorrect username or password'});
@@ -125,6 +126,62 @@ module.exports = {
             }
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             if(!decoded){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const user = await User.findById(decoded.id);
+            if(!user){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            req.user = user;
+            return next();
+            
+        } catch (error) {
+            return next(error);
+        }
+    },
+    verifyTokenAdmin: async (req, res, next) => {
+        try {
+            const authHeader = req.headers.authorization;
+            if(!authHeader){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const token = authHeader.split(' ')[1];
+            if(!process.env.JWT_SECRET){
+                res.status(500).json({success: false, message: 'Internal server error'});
+            }
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if(!decoded){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            if(decoded.isAdmin === false){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const user = await User.findById(decoded.id);
+            if(!user){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            req.user = user;
+            res.json({success: true, message: 'User verified as admin'});
+            
+        } catch (error) {
+            return next(error);
+        }
+    },
+    verifyTokenAdminInternal: async (req, res, next) => {
+        try {
+            const authHeader = req.headers.authorization;
+            if(!authHeader){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            const token = authHeader.split(' ')[1];
+            if(!process.env.JWT_SECRET){
+                res.status(500).json({success: false, message: 'Internal server error'});
+            }
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if(!decoded){
+                res.status(401).json({success: false, message: 'Unauthorized'});
+            }
+            if(decoded.isAdmin === false){
                 res.status(401).json({success: false, message: 'Unauthorized'});
             }
             const user = await User.findById(decoded.id);
