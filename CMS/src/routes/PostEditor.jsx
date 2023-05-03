@@ -14,6 +14,19 @@ export default function PostEditor() {
     setPostTitle(e.target.value);
   }
 
+  const handlePublish = () => {
+
+  };
+  const handleDelete = () => {
+
+  };
+  const handleSave = () => {
+
+  };
+  const handleCancel = () => {
+    
+  };
+
   return (
     <Box>
       <h1>Post Editor</h1>
