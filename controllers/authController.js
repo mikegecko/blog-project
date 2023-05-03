@@ -71,6 +71,9 @@ module.exports = {
                     id: user._id,
                     username: user.username,
                     isAdmin: user.isAdmin,
+                    email: user.email,
+                    name:  user.name,
+                    date:  user.date,
                 }, process.env.JWT_SECRET, {expiresIn: '1h'});
                 res.json({success: true, uid:user._id, username: user.username, isAdmin: user.isAdmin, message: 'User logged in', token});
             }
