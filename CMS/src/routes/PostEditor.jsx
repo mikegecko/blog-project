@@ -14,17 +14,24 @@ export default function PostEditor() {
     setPostTitle(e.target.value);
   }
 
-  const handlePublish = () => {
-
+  const handlePublish = (e) => {
+    // if post exists publish post
   };
-  const handleDelete = () => {
-
+  const handleDelete = (e) => {
+    // if post exists delete post
   };
-  const handleSave = () => {
-
+  const handleSave = (e) => {
+    // if post exists update post else create new post
+    // log();
+    console.log(editorRef.current.getContent());
+    console.log(postTitle);
+    // const post = {
+    //   title: postTitle,
+    //   content: editorRef.current.getContent(),
+    // 
   };
-  const handleCancel = () => {
-    
+  const handleCancel = (e) => {
+    // if post exists cancel post
   };
 
   return (
@@ -41,14 +48,14 @@ export default function PostEditor() {
           fullWidth
         />
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-          <Button variant="contained">Publish</Button>
-          <Button variant="contained">Delete</Button>
+          <Button variant="contained" onClick={handlePublish}>Publish</Button>
+          <Button variant="contained" onClick={handleDelete}>Delete</Button>
         </Box>
 
         <RichTextEditor editorRef={editorRef} />
         <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
-          <Button variant="contained">Save</Button>
-          <Button variant="contained">Cancel</Button>
+          <Button variant="contained" onClick={handleSave}>Save</Button>
+          <Button variant="contained" onClick={handleCancel}>Cancel</Button>
         </Box>
       </Box>
     </Box>
