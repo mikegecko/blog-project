@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox, FormControl, FormControlLabel, Input, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { createUser } from "../utils/userAPI";
+import { createUser, logout } from "../utils/userAPI";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Settings() {
@@ -13,10 +13,30 @@ export default function Settings() {
         res.then((data) => console.log(data)).catch((err) => console.log(err));
         setNewUser({username: "", password: "", email: "", name: "", isAdmin: false});
     }
+
     const handleChange = (e) => {
         const {name, value, checked} = e.target;
         setNewUser({...newUser, [name]: name === 'isAdmin' ? checked : value});
     }
+
+    const handleLogout = () => {
+        console.log('Logged out');
+        logout();
+    }
+
+    const authStatus = () => {
+        if(localStorage.getItem('blog-token')) {
+            return(
+                <Typography sx={{color: "green"}}>Authorized</Typography>
+            )
+        }
+        if(!localStorage.getItem('blog-token')) {
+            return(
+                <Typography sx={{color: "red"}}>Unauthorized</Typography>
+            )
+        }
+    }
+    
   return (
     <Box>
       <h1>Settings</h1>
@@ -74,8 +94,8 @@ export default function Settings() {
         </AccordionSummary>
         <AccordionDetails>
             <Box sx={{display:  "flex", flexDirection: "column", alignItems: "center", gap: ".5rem", width: "100%"}}>
-            <Typography>Auth Status:</Typography>
-            <Button variant="contained">Logout</Button>
+            <Typography>Auth Status:{authStatus()}</Typography>
+            <Button onClick={handleLogout} variant="contained">Logout</Button>
             <Typography>Username:</Typography>
             <Typography>Email:</Typography>
             <Typography>Name:</Typography>
