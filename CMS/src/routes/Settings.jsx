@@ -152,7 +152,7 @@ export default function Settings() {
             <Typography>Name:{user.name}</Typography>
             <Typography>Admin:{user.isAdmin ? "True" : "False"}</Typography>
             <Typography>ID:{user.id}</Typography>
-            <Typography>Created:{user.created}</Typography>
+            <Typography>Created:{user.date}</Typography>
             <Typography>Last Login:</Typography>
             </Box>
         </AccordionDetails>
