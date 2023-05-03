@@ -33,9 +33,6 @@ export default function RichTextEditor() {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <Button variant="contained" onClick={log}>
-        Log
-      </Button>
     </>
   );
 }
