@@ -60,7 +60,7 @@ if(!jwt){
   router.navigate('/login');
 }
 if(jwt){
-  verify(localStorage.getItem('blog-token')).then((res) => {router.navigate('/home'); console.log(res)}).catch(err => console.log(err))
+  verify(localStorage.getItem('blog-token')).then((res) => {res.success ? router.navigate('/home') : console.log(res)}).catch(err => console.log(err))
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
