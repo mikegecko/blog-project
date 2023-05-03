@@ -1,9 +1,28 @@
+import { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
 import '../App.css';
 import { Box } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+import { darkTheme, lightTheme } from '../components/Themes';
 
 export default function Root () {
+    const [colorMode, setColorMode] = useState('light');
+    const [mobileView, setMobileView] = useState(false);
+    const breakpoint = 768;
+
+    const themeControl = () => {
+        if(colorMode === 'light') {
+            return(darkTheme);
+        }
+        if(colorMode === 'dark') {
+            return(lightTheme);
+        }
+    }
+
+    
+
     return(
+        <ThemeProvider theme={themeControl()}>
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
             <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '20vw', gap: '1rem'}}>
                 <Link to={`home`}>Home</Link>
@@ -15,6 +34,7 @@ export default function Root () {
                 <Outlet />
             </Box>
         </Box>
+        </ThemeProvider>
     )
 }
 
