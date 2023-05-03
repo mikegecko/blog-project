@@ -44,10 +44,9 @@ export const logout = async () => {
 
 export const verify = async (token) => {
   try {
+    const headers = { Authorization: `Bearer ${token}` };
     const response = await axios.get("/api/auth/verify", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+        headers,
     });
     return response.data;
   } catch (error) {
