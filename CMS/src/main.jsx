@@ -10,6 +10,7 @@ import ErrorPage from './routes/ErrorPage';
 import Settings, { settingsLoader } from './routes/Settings';
 import PostEditor, { postEditorLoader } from './routes/PostEditor';
 import { verify } from './utils/userAPI';
+import PostList from './routes/PostList';
 
 export const router = createBrowserRouter([{
   path: "/",
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([{
     },
     {
       path:"/posts",
-      element: <PostView />,
+      element: <PostList />,
       loader: postViewLoader,
     },
     {
@@ -60,7 +61,8 @@ if(!jwt){
   router.navigate('/login');
 }
 if(jwt){
-  verify(localStorage.getItem('blog-token')).then((res) => {res.status === 200 ? router.navigate('/home') : router.navigate('/login')}).catch(err => { router.navigate('/login'); console.log(err)})
+  //TODO: Use success and status to determine if token is valid
+  verify(localStorage.getItem('blog-token')).then((res) => {res.success ? router.navigate('/home') : router.navigate('/login')}).catch(err => { router.navigate('/login'); console.log(err)})
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
