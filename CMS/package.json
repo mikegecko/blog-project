@@ -11,9 +11,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.12.2",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.3",
     "@tinymce/tinymce-react": "^4.3.0",
     "axios": "^1.3.6",
     "dotenv": "^16.0.3",
