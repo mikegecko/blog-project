@@ -1,6 +1,7 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, Input, TextField, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Checkbox, FormControl, FormControlLabel, Input, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { createUser } from "../utils/userAPI";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Settings() {
 
@@ -17,16 +18,18 @@ export default function Settings() {
         setNewUser({...newUser, [name]: name === 'isAdmin' ? checked : value});
     }
   return (
-    <>
+    <Box>
       <h1>Settings</h1>
       <h4>Content moderation tools</h4>
       <h4>Database tools</h4>
       <h4>Post tools</h4>
       <h4>User tools</h4>
-      <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <Typography variant="h6">Create User</Typography>
+      <Box>
+      <Accordion sx={{width: "100%"}}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Create User</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
         <form onSubmit={handleSubmit} >
           <Box
             sx={{
@@ -44,9 +47,27 @@ export default function Settings() {
             <Button type="submit" variant="contained">Create</Button>
           </Box>
         </form>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion sx={{width: "100%"}} disabled>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Update User</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+
+        </AccordionDetails>
+      </Accordion>
+      <Accordion sx={{width: "100%"}} disabled>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Delete User</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+
+        </AccordionDetails>
+      </Accordion>
       </Box>
       <h4>Other tools</h4>
-    </>
+    </Box>
   );
 }
 
