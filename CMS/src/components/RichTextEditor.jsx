@@ -1,6 +1,5 @@
+import { PropTypes } from 'prop-types';
 import { Editor } from "@tinymce/tinymce-react";
-import { useRef } from "react";
-import { Button } from "@mui/material";
 
 export default function RichTextEditor(props) {
   
@@ -31,3 +30,7 @@ export default function RichTextEditor(props) {
     </>
   );
 }
+
+RichTextEditor.propTypes = {
+  editorRef: PropTypes.object.isRequired,
+};
