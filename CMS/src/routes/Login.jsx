@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
         const res = adminLogin(loginInfo.username, loginInfo.password);
         //console.log(res);
-        res.then((data) => {console.log(data); data.success ? router.navigate('/home') : console.log('Error signing in')}).catch((err) => console.log(err));
+        res.then((data) => {console.log(data); data.success ? router.navigate('/home') : console.log(data.message)}).catch((err) => console.log(err));
         setLoginInfo({username: "", password: ""});
     }
 
