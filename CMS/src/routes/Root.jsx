@@ -27,13 +27,13 @@ export default function Root () {
     return(
         <ThemeProvider theme={themeControl()}>
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
-            <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '20vw', gap: '1rem'}}>
+            <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '15vw', gap: '1rem'}}>
                 <Link to={`home`}>Home</Link>
                 <Link to={`posts`}>Posts</Link>
                 <Link to={`edit`}>Editor</Link>
                 <Link to={`settings`}>Settings</Link>
             </Box>
-            <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80vw'}}>
+            <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '85vw'}}>
                 <Outlet />
             </Box>
         </Box>
