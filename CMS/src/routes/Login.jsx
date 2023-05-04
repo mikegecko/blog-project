@@ -18,10 +18,11 @@ export default function Login() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const res = adminLogin(loginInfo.username, loginInfo.password);
-        res.then((data) => (console.log(data), data.success ? router.navigate('/home') : console.log(data))).catch((err) => console.log(err));
+        //console.log(res);
+        res.then((data) => {console.log(data); data.success ? router.navigate('/home') : console.log('Error signing in')}).catch((err) => console.log(err));
         setLoginInfo({username: "", password: ""});
     }
 
