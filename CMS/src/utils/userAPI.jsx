@@ -101,9 +101,10 @@ export const getUsers = async (token) => {
   }
 };
 
-export const getUser = async (userid) => {
+export const getUser = async (userid, token) => {
   try {
-    const response = await axios.get(`/api/auth/user/${userid}`);
+    const headers = { Authorization: `Bearer ${token}` };
+    const response = await axios.get(`/api/auth/user/${userid}`, { headers });
     return response.data;
   } catch (error) {
     console.error(error);
