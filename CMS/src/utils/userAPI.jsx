@@ -49,6 +49,11 @@ export const login = async (username, password) => {
     return response.data;
   } catch (error) {
     console.error(error);
+    if(error.response){
+      return error.response.data;
+    } else{
+      throw error;
+    }
   }
 };
 
@@ -62,6 +67,11 @@ export const adminLogin = async (username, password) => {
         return response.data;
       } catch (error) {
         console.error(error);
+        if(error.response){
+          return error.response.data;
+        } else{
+          throw error;
+        }
       }
 };
 
