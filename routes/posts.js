@@ -10,7 +10,7 @@ router.get('/', postController.getAllPosts);
 router.get('/:id', postController.getPostById);
 
 //Create a new post
-router.post('/', postController.createPost);
+router.post('/new', postController.createPost);
 
 //Update a post
 router.put('/:id', postController.updatePost);
