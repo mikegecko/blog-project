@@ -18,7 +18,7 @@ export default function Login() {
         }
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const res = adminLogin(loginInfo.username, loginInfo.password);
         //console.log(res);
