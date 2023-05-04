@@ -58,13 +58,13 @@ module.exports = {
             const {username, password} = req.body;
             const user = await User.findOne({username});
             if(!username || !password){
-                res.status(401).json({success: false, message: 'Please provide username and password'});
+                return res.status(401).json({success: false, message: 'Please provide username and password'});
             }
             if(!process.env.JWT_SECRET){
-                res.status(500).json({success: false, message: 'Internal server error'});
+                return res.status(500).json({success: false, message: 'Internal server error'});
             }
             if(!user){
-                res.status(401).json({success: false, message: 'User not found'});
+                return res.status(401).json({success: false, message: 'User not found'});
             }
             if(user && bcrypt.compareSync(password, user.password)){
                 const token = jwt.sign({
@@ -78,7 +78,7 @@ module.exports = {
                 res.json({success: true, uid:user._id, username: user.username, isAdmin: user.isAdmin, message: 'User logged in', token});
             }
             else{
-                res.status(401).json({success: false, message: 'Incorrect username or password'});
+                return res.status(401).json({success: false, message: 'Incorrect username or password'});
             }
         } catch (error) {
             return next(error);
@@ -89,16 +89,16 @@ module.exports = {
             const {username, password} = req.body;
             const user = await User.findOne({username});
             if(!username || !password){
-                res.status(401).json({success: false, message: 'Please provide username and password'});
+                 return res.status(401).json({success: false, message: 'Please provide username and password'});
             }
             if(!process.env.JWT_SECRET){
-                res.status(500).json({success: false, message: 'Internal server error'});
+                 return res.status(500).json({success: false, message: 'Internal server error'});
             }
             if(!user){
-                res.status(401).json({success: false, message: 'User not found'});
+                return res.status(401).json({success: false, message: 'User not found'});
             }
             if(!user.isAdmin){
-                res.status(401).json({success: false, message: 'User is not an admin'});
+                return res.status(401).json({success: false, message: 'User is not an admin'});
             }
             if(user && bcrypt.compareSync(password, user.password)){
                 const token = jwt.sign({
@@ -112,7 +112,7 @@ module.exports = {
                 res.json({success: true, uid:user._id, username: user.username, isAdmin: user.isAdmin, message: 'User logged in', token});
             }
             else{
-                res.status(401).json({success: false, message: 'Incorrect username or password'});
+                return res.status(401).json({success: false, message: 'Incorrect username or password'});
             }
         } catch (error) {
             return next(error);
