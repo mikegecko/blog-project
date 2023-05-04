@@ -5,6 +5,9 @@ export default function PostCard(props){
 
     const formattedCreateDate = new Date(props.post.created).toLocaleDateString();
     const formattedEditDate = new Date(props.post.edited).toLocaleDateString();
+
+    // When you click on a post navigate to the editor with the post id
+
     return(
         <Box sx={{padding: 2}} >
             <ButtonBase sx={{width: '100%'}}>
@@ -22,5 +25,7 @@ PostCard.propTypes = {
     post: PropTypes.shape({
         title: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
+        created: PropTypes.string.isRequired,
+        edited: PropTypes.string.isRequired,
     })
 };
