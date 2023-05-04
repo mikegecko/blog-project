@@ -1,9 +1,15 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import RichTextEditor from "../components/RichTextEditor";
+import { useLoaderData } from "react-router-dom";
+import { getUser } from "../utils/userAPI";
+import jwt_decode from "jwt-decode";
+import { createPost } from "../utils/postAPI";
+
 export default function PostEditor() {
   const [postTitle, setPostTitle] = useState("");
   const editorRef = useRef(null);
+  const [user, setUser] = useState(useLoaderData());
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent());
@@ -12,7 +18,7 @@ export default function PostEditor() {
 
   const handleTitleChange = (e) => {
     setPostTitle(e.target.value);
-  }
+  };
 
   const handlePublish = (e) => {
     // if post exists publish post
@@ -25,14 +31,31 @@ export default function PostEditor() {
     // log();
     console.log(editorRef.current.getContent());
     console.log(postTitle);
-    // const post = {
-    //   title: postTitle,
-    //   content: editorRef.current.getContent(),
-    // 
+    const now = Date.now();
+    const post = {
+      user: user._id,
+      title: postTitle,
+      content: editorRef.current.getContent(),
+      name: user.name,
+      created: now,
+      edited: now,
+      publishDate: null,
+      likes: 0,
+      comments: [],
+      published: false,
+    };
+
+    createPost(post);
+    return;
   };
+  
   const handleCancel = (e) => {
     // if post exists cancel post
   };
+
+  useEffect(() => {
+    // Get user info or maybe put into loader
+  }, []);
 
   return (
     <Box>
@@ -48,14 +71,22 @@ export default function PostEditor() {
           fullWidth
         />
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-          <Button variant="contained" onClick={handlePublish}>Publish</Button>
-          <Button variant="contained" onClick={handleDelete}>Delete</Button>
+          <Button variant="contained" onClick={handlePublish}>
+            Publish
+          </Button>
+          <Button variant="contained" onClick={handleDelete}>
+            Delete
+          </Button>
         </Box>
 
         <RichTextEditor editorRef={editorRef} />
         <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
-          <Button variant="contained" onClick={handleSave}>Save</Button>
-          <Button variant="contained" onClick={handleCancel}>Cancel</Button>
+          <Button variant="contained" onClick={handleSave}>
+            Save
+          </Button>
+          <Button variant="contained" onClick={handleCancel}>
+            Cancel
+          </Button>
         </Box>
       </Box>
     </Box>
@@ -63,5 +94,8 @@ export default function PostEditor() {
 }
 
 export async function postEditorLoader() {
-  return null;
+  const token = localStorage.getItem("blog-token");
+  const decoded = jwt_decode(token);
+  const user = await getUser(decoded.id, token);
+  return(user);
 }
