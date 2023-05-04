@@ -10,7 +10,7 @@ import ErrorPage from './routes/ErrorPage';
 import Settings, { settingsLoader } from './routes/Settings';
 import PostEditor, { postEditorLoader } from './routes/PostEditor';
 import { verify } from './utils/userAPI';
-import PostList from './routes/PostList';
+import PostList, { postLoader } from './routes/PostList';
 
 export const router = createBrowserRouter([{
   path: "/",
@@ -26,7 +26,7 @@ export const router = createBrowserRouter([{
     {
       path:"/posts",
       element: <PostList />,
-      loader: postViewLoader,
+      loader: postLoader,
     },
     {
       path:"/post/:id",
