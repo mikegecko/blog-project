@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import RichTextEditor from "../components/RichTextEditor";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import { getUser } from "../utils/userAPI";
 import jwt_decode from "jwt-decode";
-import { createPost } from "../utils/postAPI";
+import { createPost, getPost, getPosts } from "../utils/postAPI";
 
 export default function PostEditor() {
+  const location = useLocation();
+  const postId = location.pathname.split("/")[2] || null;
   const [postTitle, setPostTitle] = useState("");
   const editorRef = useRef(null);
   const [user, setUser] = useState(useLoaderData());
@@ -53,8 +55,20 @@ export default function PostEditor() {
     // if post exists cancel post
   };
 
+  const fetchPost = async () => {
+    // if post exists fetch post
+    if(postId){
+      console.log(postId);
+      const post = await getPost(postId);
+      console.log(post);
+    }
+    else{
+      console.log('No post provided');
+    }
+  }
+
   useEffect(() => {
-    // Get user info or maybe put into loader
+      fetchPost();
   }, []);
 
   return (
