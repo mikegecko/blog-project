@@ -18,6 +18,7 @@ export default function PostCard(props){
     const handlePostEditClick = (e) => {
         e.stopPropagation();
         console.log('Edit clicked');
+        props.onEditPost(post._id);
     };
     const handlePostDeleteClick = (e) => {
         e.stopPropagation();
@@ -31,7 +32,7 @@ export default function PostCard(props){
     return(
         <Box sx={{padding: 2}} >
             <ButtonBase onClick={handlePostClick} sx={{width: '100%'}}>
-            <Paper variant="outlined" elevation={2} sx={{padding: 2,  width: '100%'}}>
+            <Paper variant="outlined" elevation={0} sx={{padding: 2,  width: '100%'}}>
                 <Typography variant="h6" gutterBottom>{post.title}</Typography>
                 <Typography variant="subtitle" sx={{color: 'text.secondary'}} gutterBottom>Edited: {formattedEditDate}</Typography>
                 <Typography variant="subtitle2" sx={{color: 'text.secondary'}} gutterBottom>Created: {formattedCreateDate}</Typography>
@@ -53,5 +54,6 @@ PostCard.propTypes = {
         created: PropTypes.string.isRequired,
         edited: PropTypes.string.isRequired,
         
-    })
+    }),
+    onEditPost: PropTypes.func.isRequired,
 };
