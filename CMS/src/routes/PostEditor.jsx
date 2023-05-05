@@ -57,6 +57,7 @@ export default function PostEditor() {
 
   const fetchPost = async () => {
     // if post exists fetch post
+    //THIS IS BROKEN GIVES A 404
     if(postId){
       console.log(postId);
       const post = await getPost(postId);
