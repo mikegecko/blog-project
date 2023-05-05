@@ -3,12 +3,15 @@ import { useLoaderData } from "react-router-dom";
 import { getPosts } from "../utils/postAPI";
 import { Box, Grid } from "@mui/material";
 import PostCard from "../components/PostCard";
+import { router } from "../main";
 
 export default function PostList() {
 
     const [posts, setPosts] = useState(useLoaderData());
 
-
+    const onEditPost = (postid) => {
+        router.navigate(`/edit/${postid}`);
+    }
 
     useEffect(() => {
 
@@ -21,7 +24,7 @@ export default function PostList() {
             {posts ? posts.map(post => {
                 return(
                     <Grid key={post.id} item xs={2} sm={4} md={4} lg={4} xl={4} >
-                        <PostCard  post={post} />
+                        <PostCard onEditPost={onEditPost}  post={post} />
                     </Grid>
                 )
             }) : 'No posts'}
