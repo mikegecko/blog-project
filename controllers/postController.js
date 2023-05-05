@@ -5,17 +5,12 @@ module.exports = {
         Post.find().then((posts) => res.json(posts)).catch((err) => res.json(err));
     },
     getPostById: async (req, res, next) => {
-        Post.findById(req.params.id).exec((err, post) => {
-            if(err){
-                return next(err);
-            }
-            if(!post){
-                return res.status(404).json({
-                    message: "Post not found",
-                });
-            }
+        try {
+            const post = await Post.findById(req.params.id);
             res.json(post);
-        })
+        } catch (error) {
+            return next(error);
+        }
     },
     createPost: async (req, res, next) => {
         const newPost = new Post(req.body);
