@@ -99,9 +99,6 @@ export default function PostEditor() {
     setEditorReady(true);
   }
 
-  useEffect(() => {
-    console.log(postTitle);
-  }, [postTitle])
 
   return (
     <Box>
@@ -130,7 +127,7 @@ export default function PostEditor() {
         onInit={(evt, editor) => {editorRef.current = editor; handleEditorInit()}}
         initialValue="<p>Enter your content here</p>"
         value={postContent}
-        onChange={handleEditorChange}
+        onEditorChange={handleEditorChange}
         init={{
           height: 500,
           menubar: false,
