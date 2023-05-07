@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import RichTextEditor from "../components/RichTextEditor";
 import { useLoaderData, useLocation } from "react-router-dom";
 import { getUser } from "../utils/userAPI";
 import jwt_decode from "jwt-decode";
 import { createPost, getPost, getPosts } from "../utils/postAPI";
+import { Editor } from "@tinymce/tinymce-react";
 
 export default function PostEditor() {
   const location = useLocation();
   const postId = location.pathname.split("/")[2] || null;
+  const [editorReady, setEditorReady] = useState(false);
   const [postTitle, setPostTitle] = useState("");
+  const [postContent, setPostContent] = useState("");
   const editorRef = useRef(null);
   const [user, setUser] = useState(useLoaderData());
   const log = () => {
@@ -55,22 +57,51 @@ export default function PostEditor() {
     // if post exists cancel post
   };
 
-  const fetchPost = async () => {
-    // if post exists fetch post
-    //THIS IS BROKEN GIVES A 404
-    if(postId){
-      console.log(postId);
-      const post = await getPost(postId);
-      console.log(post);
+  
+
+  
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      // if post exists fetch post
+      if(postId){
+        //console.log(postId);
+        const post = await getPost(postId);
+        //console.log(post);
+        return post;
+      }
+      else{
+        console.log('No post provided');
+        return;
+      }
     }
-    else{
-      console.log('No post provided');
+    const loadPost = async (post) => {
+      console.log(post.content);
+      setPostTitle(post.title);
+      setPostContent(post.content);
+      return;
+    };
+    const postLoader = async () => {
+      const post = await fetchPost();
+      if(post){
+        loadPost(post);
+      }
     }
+    postLoader();
+
+  }, []);
+
+  const handleEditorChange = (content, editor) => {
+    setPostContent(content);
+  }
+
+  const handleEditorInit = () => {
+    setEditorReady(true);
   }
 
   useEffect(() => {
-      fetchPost();
-  }, []);
+    console.log(postTitle);
+  }, [postTitle])
 
   return (
     <Box>
@@ -94,7 +125,29 @@ export default function PostEditor() {
           </Button>
         </Box>
 
-        <RichTextEditor editorRef={editorRef} />
+        <Editor
+        apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
+        onInit={(evt, editor) => {editorRef.current = editor; handleEditorInit()}}
+        initialValue="<p>Enter your content here</p>"
+        value={postContent}
+        onChange={handleEditorChange}
+        init={{
+          height: 500,
+          menubar: false,
+          plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste code help wordcount",
+          ],
+          toolbar:
+            "undo redo | formatselect | " +
+            "bold italic backcolor | alignleft aligncenter " +
+            "alignright alignjustify | bullist numlist outdent indent | " +
+            "removeformat | help",
+          content_style:
+            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        }}
+      />
         <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
           <Button variant="contained" onClick={handleSave}>
             Save
