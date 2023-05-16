@@ -10,61 +10,61 @@ ________________________________________________
 ________________________________________________
     Current Tasks
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    - Prioritize tasks
+    🔴 Prioritize tasks
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     - Figure out overall design for displaying blog posts
     - Figure out page structure for client app
-    - 
     ____________________________________________
         CMS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     - Home page sections
-        - Continue editing - display most recent updated post that is not published
-        - Recently published - display most recent updated post that is published (or create publish date)
-        - Recent comments - comments not yet implemented
-        - Site stats - total number of users, comments, most recent user, ???...
+        🟠 Continue editing - display most recent updated post that is not published
+        🟠 Recently published - display most recent updated post that is published (or create publish date)
+        🟡 Recent comments - comments not yet implemented
+        🟡 Site stats - total number of users, comments, most recent user, ???...
     - Posts page sections
-        - Make post cards prettier
-        - 
+        🟡 Make post cards prettier
+        🟠 Click to edit post
+        🔴 Delete button w/modal
     - Settings page sections
-        - Update User - add functions
-        - Delete User - add functions
-        - Add last login to account info
-        - Post tools - ???
-        - Database tools - ???
-        - Content Moderation Tools - profanity filter for comments, banning users?
+        🟠 Update User - add functions
+        🟠 Delete User - add functions
+        🟡 Add last login to account info
+        🔵 Post tools - ???
+        🔵 Database tools - ???
+        🟡 Content Moderation Tools - profanity filter for comments, banning users?
     - Login page sections
-        - Update design
-        - Add error for failed login
+        🟡 Update design
+        🟡 Add error for failed login
     - Sidebar page sections (root)
-        - Add icons for pages
-        - Update design
-    - Add snackbar for errors, success, info
-    - Add loading status indicator for editor
-    - Implement saving/updating existing post
-    - Add delete post w/modal
-    - Redesign post list view
-    - Add mobile views
-    - Do a design rework
-    - Update README
+        🟡 Add icons for pages
+        🟡 Update design
+    🟡 Add snackbar for errors, success, info
+    🟡 Add loading status indicator for editor
+    🔴 Implement saving/updating existing post
+    🔴 Add delete post w/modal
+    🟡 Redesign post list view
+    🟠 Add mobile views
+    🟡 Do a design rework
+    🟡 Update README
     ____________________________________________
     Ideas/Features
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    - Add cover image uploading for posts
-    - Add rich text element selection to tinyMce
+    🔵 Add cover image uploading for posts
+    🔵 Add rich text element selection to tinyMce
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    - Decide on what routes need to be protected
-    - Add authentication to protected routes
+    🔴 Decide on what routes need to be protected
+    🔴 Add authentication to protected routes
 
 ________________________________________________
                      BUGS
 ________________________________________________
 
-    - When JTW expires reroute to login page not 404 page
+    ⚠️ When JWT expires reroute to login page not 404 page - display error message
 ________________________________________________
               COMPLETED FEATURES/TASKS
 ________________________________________________
