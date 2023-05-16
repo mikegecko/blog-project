@@ -23,6 +23,7 @@ export default function PostCard(props){
     const handlePostDeleteClick = (e) => {
         e.stopPropagation();
         console.log('Delete clicked');
+        props.onDeletePost(post._id);
     }
     const handlePostViewClick = (e) => {
         e.stopPropagation();
@@ -56,4 +57,5 @@ PostCard.propTypes = {
         
     }),
     onEditPost: PropTypes.func.isRequired,
+    onDeletePost: PropTypes.func.isRequired,
 };
