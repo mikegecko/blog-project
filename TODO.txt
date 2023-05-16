@@ -10,7 +10,12 @@ ________________________________________________
 ________________________________________________
     Current Tasks
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    
+    🔴 Add protection to following routes in backend and add Authorization headers to CMS:
+        🔴 new post
+        🔴 update post
+        🔴 delete post
+    🔴 Update post when saving to and existing post
+    🔴 Update edit field when saving to existing post
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
