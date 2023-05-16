@@ -1,12 +1,14 @@
 ✅ ❌ ⚠️ 🔴 🟠 🟡 🟢 ⚫ ⚪ 🔵
 ________________________________________________
                      TODO
+    🟢 - In Progress
     🔴 - URGENT
     🟠 - Medium Priority
     🟡 - Low Priority
     🔵 - Feature
     ⚫ - Dropped Feature
     ⚪ - Reminder
+    ✅ - Completed
 ________________________________________________
     Current Tasks
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -32,9 +34,9 @@ ________________________________________________
     - Posts page sections
         🟡 Make post cards prettier
         🟠 Click to edit post/view post info
-        🟢 Delete button w/modal
+        ✅ Delete button w/modal
     - Editor page sections
-        🔴 When saving, update existing post and relevant fields (currently saves as a new post)
+        ✅ When saving, update existing post and relevant fields (currently saves as a new post)
         🟡 Implement delete button (or remove it)
         🟡 Publish button functions
     - Settings page sections
@@ -52,7 +54,7 @@ ________________________________________________
         🟡 Update design
     🟡 Add snackbar for errors, success, info
     🟡 Add loading status indicator for editor
-    🔴 Implement saving/updating existing post
+    ✅ Implement saving/updating existing post
     🟡 Redesign post list view
     🟠 Add mobile views
     🟡 Do a design rework
@@ -62,7 +64,7 @@ ________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     🔵 Add cover image uploading for posts
     🔵 Add rich text element selection to tinyMce
-    - Preview page before publishing
+    🔵 Preview page before publishing
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -79,5 +81,5 @@ ________________________________________________
               COMPLETED FEATURES/TASKS
 ________________________________________________
 
-    🟢 Prioritize tasks
-    🟢 Add delete post w/modal
+    ✅ Prioritize tasks
+    ✅ Add delete post w/modal
