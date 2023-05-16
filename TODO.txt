@@ -10,7 +10,7 @@ ________________________________________________
 ________________________________________________
     Current Tasks
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    🔴 Prioritize tasks
+    
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -26,8 +26,12 @@ ________________________________________________
         🟡 Site stats - total number of users, comments, most recent user, ???...
     - Posts page sections
         🟡 Make post cards prettier
-        🟠 Click to edit post
-        🔴 Delete button w/modal
+        🟠 Click to edit post/view post info
+        🟢 Delete button w/modal
+    - Editor page sections
+        🔴 When saving, update existing post and relevant fields (currently saves as a new post)
+        🟡 Implement delete button (or remove it)
+        🟡 Publish button functions
     - Settings page sections
         🟠 Update User - add functions
         🟠 Delete User - add functions
@@ -44,7 +48,6 @@ ________________________________________________
     🟡 Add snackbar for errors, success, info
     🟡 Add loading status indicator for editor
     🔴 Implement saving/updating existing post
-    🔴 Add delete post w/modal
     🟡 Redesign post list view
     🟠 Add mobile views
     🟡 Do a design rework
@@ -54,6 +57,7 @@ ________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     🔵 Add cover image uploading for posts
     🔵 Add rich text element selection to tinyMce
+    - Preview page before publishing
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -68,3 +72,6 @@ ________________________________________________
 ________________________________________________
               COMPLETED FEATURES/TASKS
 ________________________________________________
+
+    🟢 Prioritize tasks
+    🟢 Add delete post w/modal
