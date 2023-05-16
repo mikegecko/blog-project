@@ -3,7 +3,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { useLoaderData, useLocation } from "react-router-dom";
 import { getUser } from "../utils/userAPI";
 import jwt_decode from "jwt-decode";
-import { createPost, getPost, getPosts } from "../utils/postAPI";
+import { createPost, getPost, getPosts, updatePost } from "../utils/postAPI";
 import { Editor } from "@tinymce/tinymce-react";
 
 export default function PostEditor() {
@@ -33,23 +33,41 @@ export default function PostEditor() {
   const handleSave = (e) => {
     // if post exists update post else create new post
     // log();
-    console.log(editorRef.current.getContent());
-    console.log(postTitle);
-    const now = Date.now();
-    const post = {
-      user: user._id,
-      title: postTitle,
-      content: editorRef.current.getContent(),
-      name: user.name,
-      created: now,
-      edited: now,
-      publishDate: null,
-      likes: 0,
-      comments: [],
-      published: false,
-    };
-
-    createPost(post);
+    if(postId){
+      //post exists -> update
+      const now = Date.now();
+      const post = {
+        user: user._id,
+        title: postTitle,
+        content: editorRef.current.getContent(),
+        name: user.name,
+        edited: now,
+        publishDate: null,
+        likes: 0,
+        comments: [],
+        published: false,
+      };
+      updatePost(postId, post);
+    }
+    else{
+      console.log(editorRef.current.getContent());
+      console.log(postTitle);
+      const now = Date.now();
+      const post = {
+        user: user._id,
+        title: postTitle,
+        content: editorRef.current.getContent(),
+        name: user.name,
+        created: now,
+        edited: now,
+        publishDate: null,
+        likes: 0,
+        comments: [],
+        published: false,
+      };
+      createPost(post);
+    }
+    
     return;
   };
   
@@ -57,9 +75,6 @@ export default function PostEditor() {
     // if post exists cancel post
   };
 
-  
-
-  
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -76,7 +91,7 @@ export default function PostEditor() {
       }
     }
     const loadPost = async (post) => {
-      console.log(post.content);
+      //console.log(post.content);
       setPostTitle(post.title);
       setPostContent(post.content);
       return;
@@ -88,7 +103,6 @@ export default function PostEditor() {
       }
     }
     postLoader();
-
   }, []);
 
   const handleEditorChange = (content, editor) => {
