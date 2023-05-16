@@ -4,14 +4,37 @@ import { getPosts } from "../utils/postAPI";
 import { Box, Grid } from "@mui/material";
 import PostCard from "../components/PostCard";
 import { router } from "../main";
+import DeleteModal from "../components/DeleteModal";
+import { deletePost } from "../utils/postAPI";
 
 export default function PostList() {
 
     const [posts, setPosts] = useState(useLoaderData());
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [selectedPost, setSelectedPost] = useState(null);
+
+    const handleClose = () => {
+        setDeleteModalOpen(false);
+    }
+    const handleDelete = async() => {
+        setDeleteModalOpen(false);
+        console.log(selectedPost);
+        if(selectedPost) {
+            //Bug: Need to call twice to rerender the page
+            await deletePost(selectedPost);
+            const posts = await getPosts();
+            setPosts(posts);
+        }
+    }
 
     const onEditPost = (postid) => {
         router.navigate(`/edit/${postid}`);
     }
+
+    const onDeletePost = (postid) => {
+        setSelectedPost(postid);
+        setDeleteModalOpen(true);
+    };
 
     useEffect(() => {
 
@@ -24,11 +47,12 @@ export default function PostList() {
             {posts ? posts.map(post => {
                 return(
                     <Grid key={post.id} item xs={2} sm={4} md={4} lg={4} xl={4} >
-                        <PostCard onEditPost={onEditPost}  post={post} />
+                        <PostCard onEditPost={onEditPost} onDeletePost={onDeletePost} post={post} />
                     </Grid>
                 )
             }) : 'No posts'}
             </Grid>
+            <DeleteModal open={deleteModalOpen} onClose={handleClose} onDelete={handleDelete} />
         </Box>
     )
 }
