@@ -22,7 +22,10 @@ export default function Home () {
 
 export async function homeLoader () {
     //Return the data we need -> access data using useLoaderData()
-
+    //Get most recent edited post
+    //Get most recent published post
+    //Get most recent comments
+    //Get total user count for comments / total comments
 
     return null;
 }
