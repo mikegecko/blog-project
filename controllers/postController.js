@@ -27,4 +27,12 @@ module.exports = {
     deletePost: async (req, res, next) => {
         Post.findByIdAndDelete(req.params.id).then((post) => res.json(post)).catch((err) => next(err));
     },
+    getRecentPosts: async (req, res, next) => {
+        try {
+            const recentPost = await Post.findOne().sort({edited: -1}).exec();
+            res.status(200).json(recentPost)
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    },
 };
