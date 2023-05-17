@@ -16,9 +16,7 @@ ________________________________________________
         🔴 new post
         🔴 update post
         🔴 delete post
-    🔴 Update post when saving to and existing post
-    🔴 Update edit field when saving to existing post
-    ✅ Create new route for getting most recent post
+    🔴 Create new route for getting most recent published post
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -55,7 +53,6 @@ ________________________________________________
         🟡 Update design
     🟡 Add snackbar for errors, success, info
     🟡 Add loading status indicator for editor
-    ✅ Implement saving/updating existing post
     🟡 Redesign post list view
     🟠 Add mobile views
     🟡 Do a design rework
@@ -84,3 +81,7 @@ ________________________________________________
 
     ✅ Prioritize tasks
     ✅ Add delete post w/modal
+    ✅ Update post when saving to an existing post
+    ✅ Update edit field when saving to existing post
+    ✅ Create new route for getting most recent post
+    ✅ Implement saving/updating existing post
