@@ -18,7 +18,7 @@ ________________________________________________
         🔴 delete post
     🔴 Update post when saving to and existing post
     🔴 Update edit field when saving to existing post
-    🔵 Create new routes for getting most recent post ? or just get all posts and sort client side
+    ✅ Create new route for getting most recent post
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -28,7 +28,7 @@ ________________________________________________
         CMS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     - Home page sections
-        🔴 Continue editing - display most recent updated post that is not published
+        ✅ Continue editing - display most recent updated post that is not published
         🟠 Recently published - display most recent updated post that is published (or create publish date)
         🟡 Recent comments - comments not yet implemented
         🟡 Site stats - total number of users, comments, most recent user, ???...

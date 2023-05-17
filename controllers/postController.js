@@ -29,7 +29,7 @@ module.exports = {
     },
     getRecentPosts: async (req, res, next) => {
         try {
-            const recentPosts = await Post.find().sort({edited: -1}).limit(1).exec();
+            const recentPosts = await Post.find({published: false}).sort({edited: -1}).limit(1).exec();
             res.json(recentPosts[0]);
         } catch (error) {
             res.status(500).json(error)
