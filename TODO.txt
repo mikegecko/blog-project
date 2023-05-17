@@ -12,11 +12,11 @@ ________________________________________________
 ________________________________________________
     Current Tasks
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    🔴 Add protection to following routes in backend and add Authorization headers to CMS:
-        🔴 new post
-        🔴 update post
-        🔴 delete post
-    🔴 Create new route for getting most recent published post
+    🟠 Add protection to following routes in backend and add Authorization headers to CMS:
+        🟠 new post
+        🟠 update post
+        🟠 delete post
+    🟠 Create new route for getting most recent published post
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -30,6 +30,7 @@ ________________________________________________
         🟠 Recently published - display most recent updated post that is published (or create publish date)
         🟡 Recent comments - comments not yet implemented
         🟡 Site stats - total number of users, comments, most recent user, ???...
+        🟡 Rework home page desgin
     - Posts page sections
         🟡 Make post cards prettier
         🟠 Click to edit post/view post info
