@@ -49,3 +49,12 @@ export const deletePost = async(postid) => {
         console.error(error)
     }
 };
+
+export const recentPost = async() => {
+    try{
+        const response = await axios.get("/api/posts/recent");
+        return response.data;
+    } catch(error){
+        console.error(error);
+    }
+}
