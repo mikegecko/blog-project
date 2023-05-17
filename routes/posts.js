@@ -18,4 +18,7 @@ router.put('/:id', postController.updatePost);
 //Delete a post
 router.delete('/:id', postController.deletePost);
 
+//GET most recent posts
+router.get('/recent', postController.getRecentPosts);
+
 module.exports = router;
