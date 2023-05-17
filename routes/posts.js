@@ -6,6 +6,9 @@ const postController = require('../controllers/postController');
 // GET all posts
 router.get('/', postController.getAllPosts);
 
+//GET most recent posts
+router.get('/recent', postController.getRecentPosts);
+
 //GET a single post
 router.get('/:id', postController.getPostById);
 
@@ -18,7 +21,5 @@ router.put('/:id', postController.updatePost);
 //Delete a post
 router.delete('/:id', postController.deletePost);
 
-//GET most recent posts
-router.get('/recent', postController.getRecentPosts);
 
 module.exports = router;
