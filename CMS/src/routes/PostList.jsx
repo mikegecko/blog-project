@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 import { getPosts } from "../utils/postAPI";
 import { Box, Grid } from "@mui/material";
 import PostCard from "../components/PostCard";
-import { router } from "../main";
 import DeleteModal from "../components/DeleteModal";
 import { deletePost } from "../utils/postAPI";
 
@@ -26,19 +25,10 @@ export default function PostList() {
             setPosts(posts);
         }
     }
-
-    const onEditPost = (postid) => {
-        router.navigate(`/edit/${postid}`);
-    }
-
     const onDeletePost = (postid) => {
         setSelectedPost(postid);
         setDeleteModalOpen(true);
     };
-
-    useEffect(() => {
-
-    }, [])
     
     return(
         <Box sx={{flexGrow: 1}}>
@@ -47,7 +37,7 @@ export default function PostList() {
             {posts ? posts.map(post => {
                 return(
                     <Grid key={post.id} item xs={2} sm={4} md={4} lg={4} xl={4} >
-                        <PostCard onEditPost={onEditPost} onDeletePost={onDeletePost} post={post} />
+                        <PostCard onDeletePost={onDeletePost} post={post} />
                     </Grid>
                 )
             }) : 'No posts'}

@@ -3,13 +3,14 @@ import { Box, ButtonBase, Paper, Typography } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PreviewIcon from '@mui/icons-material/Preview';
+import { router } from "../main";
+
+
 
 export default function PostCard(props){
     const post = props.post;
     const formattedCreateDate = new Date(props.post.created).toLocaleDateString();
     const formattedEditDate = new Date(props.post.edited).toLocaleDateString();
-
-    // When you click on a post navigate to the editor with the post id
 
     const handlePostClick = (e) => {
         e.stopPropagation();
@@ -17,8 +18,7 @@ export default function PostCard(props){
     }
     const handlePostEditClick = (e) => {
         e.stopPropagation();
-        console.log('Edit clicked');
-        props.onEditPost(post._id);
+        router.navigate(`/edit/${post._id}`);
     };
     const handlePostDeleteClick = (e) => {
         e.stopPropagation();
@@ -56,6 +56,5 @@ PostCard.propTypes = {
         edited: PropTypes.string.isRequired,
         
     }),
-    onEditPost: PropTypes.func.isRequired,
     onDeletePost: PropTypes.func.isRequired,
 };
