@@ -79,6 +79,7 @@ ________________________________________________
 
     ⚠️ When JWT expires reroute to login page not 404 page - display error message
     ⚠️ Add return conditions for failed connections from loader functions for routes
+    ⚠️ Fix settings page expanding to greater than window height causing scrollbars to appear
 ________________________________________________
               COMPLETED FEATURES/TASKS
 ________________________________________________
