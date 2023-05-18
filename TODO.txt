@@ -31,6 +31,7 @@ ________________________________________________
         🟡 Recent comments - comments not yet implemented
         🟡 Site stats - total number of users, comments, most recent user, ???...
         🟡 Rework home page desgin
+        🟡 Fix Continue editing delete button
     - Posts page sections
         🟡 Make post cards prettier
         🟠 Click to edit post/view post info
@@ -39,6 +40,8 @@ ________________________________________________
         ✅ When saving, update existing post and relevant fields (currently saves as a new post)
         🟡 Implement delete button (or remove it)
         🟡 Publish button functions
+        🟡 Add loading section for editor (tinymce takes a long time to render)
+        - Add button for creating new post -> navigate to new post so save button uses url id to save to proper location
     - Settings page sections
         🟠 Update User - add functions
         🟠 Delete User - add functions
