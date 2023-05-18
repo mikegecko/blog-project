@@ -33,7 +33,7 @@ export default function PostList() {
     return(
         <Box sx={{flexGrow: 1}}>
             <h1>Posts</h1>
-            <Grid container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
+            <Grid sx={{padding: '1rem'}} container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
             {posts ? posts.map(post => {
                 return(
                     <Grid key={post.id} item xs={2} sm={4} md={4} lg={4} xl={4} >
