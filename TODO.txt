@@ -72,7 +72,9 @@ ________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     🔴 Decide on what routes need to be protected
     🔴 Add authentication to protected routes
-
+    🔴 Add routes for client retrieval of published posts
+        - recently published post
+        - all published posts
 ________________________________________________
                      BUGS
 ________________________________________________
