@@ -68,13 +68,50 @@ export default function Settings() {
     },[])
 
   return (
-    <Box>
+    <Box sx={{display: 'flex', flexDirection: 'column'}}>
       <h1>Settings</h1>
+      <Box sx={{display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap', padding: '1rem',  justifyContent: 'center'}}>
+        <Box>
       <h4>Content moderation tools</h4>
-      <h4>Database tools</h4>
-      <h4>Post tools</h4>
-      <h4>User tools</h4>
+      <Accordion sx={{width: "100%"}} >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Content mod Stuff</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <Box>
+              <Typography>Content mod Stuff</Typography>
+            </Box>
+        </AccordionDetails>
+      </Accordion>
+      </Box>
       <Box>
+      <h4>Database tools</h4>
+      <Accordion sx={{width: "100%"}} >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Database Stuff</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <Box>
+              <Typography>Database Stuff</Typography>
+            </Box>
+        </AccordionDetails>
+      </Accordion>
+      </Box>
+      <Box>
+      <h4>Post tools</h4>
+      <Accordion sx={{width: "100%"}} >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Post Stuff</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <Box>
+              <Typography>Post Stuff</Typography>
+            </Box>
+        </AccordionDetails>
+      </Accordion>
+      </Box>
+      <Box sx={{display: 'flex', flexDirection: 'column'}}>
+      <h4>User tools</h4>
       <Accordion sx={{width: "100%"}}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Create User</Typography>
@@ -137,8 +174,8 @@ export default function Settings() {
         </AccordionDetails>
       </Accordion>
       </Box>
-      <h4>Other tools</h4>
       <Box>
+      <h4>Other tools</h4>
       <Accordion sx={{width: "100%"}} >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Account Info</Typography>
@@ -157,6 +194,7 @@ export default function Settings() {
             </Box>
         </AccordionDetails>
       </Accordion>
+      </Box>
       </Box>
     </Box>
   );
