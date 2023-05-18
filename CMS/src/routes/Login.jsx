@@ -33,9 +33,9 @@ export default function Login() {
 
     return (
         <ThemeProvider theme={themeControl()}>
-        <Box>
-            <h1>Login</h1>
-            
+        <Box className="gradient" sx={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", gap: "20px", width:  "100vw"}}>
+            <h1>Blog Editor</h1>
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
             <Box sx={{display: "flex", flexDirection: "column", gap: "10px"}}>
                 <TextField variant="outlined" type="text" label="Username" name="username" value={loginInfo.username} onChange={handleChange} />
