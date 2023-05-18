@@ -26,8 +26,8 @@ export default function Root () {
 
     return(
         <ThemeProvider theme={themeControl()}>
-        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
-            <Box className="Sidebar" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '15vw', gap: '1rem'}}>
+        <Box className="" sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
+            <Box className="Sidebar gradient" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '15vw', gap: '1rem', height: '100vh'}}>
                 <Link to={`home`}>Home</Link>
                 <Link to={`posts`}>Posts</Link>
                 <Link to={`edit`}>Editor</Link>
