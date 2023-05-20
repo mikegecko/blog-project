@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PreviewIcon from '@mui/icons-material/Preview';
 import { router } from "../main";
-
+import UnpublishedIcon from '@mui/icons-material/Unpublished';
 
 
 export default function PostCard(props){
@@ -37,9 +37,14 @@ export default function PostCard(props){
                 <Typography variant="h6" gutterBottom>{post.title}</Typography>
                 <Typography variant="subtitle" sx={{color: 'text.secondary'}} gutterBottom>Edited: {formattedEditDate}</Typography>
                 <Typography variant="subtitle2" sx={{color: 'text.secondary'}} gutterBottom>Created: {formattedCreateDate}</Typography>
+                <Box sx={{display: 'flex', justifyContent: 'space-between', gap: '.5rem'}}>
+                    <Box>
+                        {post.published ? <PreviewIcon /> : <UnpublishedIcon />}
+                    </Box>
                 <Box sx={{display: 'flex', justifyContent: 'flex-end', gap: '.5rem'}}>
                     <ButtonBase onClick={handlePostEditClick}><EditIcon /></ButtonBase>
                     <ButtonBase onClick={handlePostDeleteClick}><DeleteIcon /></ButtonBase>
+                </Box>
                 </Box>
             </Paper>
             </ButtonBase>
@@ -54,7 +59,7 @@ PostCard.propTypes = {
         content: PropTypes.string.isRequired,
         created: PropTypes.string.isRequired,
         edited: PropTypes.string.isRequired,
-        
+        published: PropTypes.bool.isRequired,
     }),
     onDeletePost: PropTypes.func.isRequired,
 };

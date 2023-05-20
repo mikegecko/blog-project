@@ -5,6 +5,7 @@ import { getUser } from "../utils/userAPI";
 import jwt_decode from "jwt-decode";
 import { createPost, getPost, getPosts, updatePost } from "../utils/postAPI";
 import { Editor } from "@tinymce/tinymce-react";
+import PublishIcon from '@mui/icons-material/Publish';
 
 export default function PostEditor() {
   const location = useLocation();
@@ -129,6 +130,7 @@ export default function PostEditor() {
         />
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
           <Button variant="contained" onClick={handlePublish}>
+            <PublishIcon sx={{ fontSize: "1.5rem", mr: 1 }} />
             Publish
           </Button>
           <Button variant="contained" onClick={handleDelete}>

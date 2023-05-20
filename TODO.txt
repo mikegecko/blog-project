@@ -33,6 +33,8 @@ ________________________________________________
         🟡 Rework home page desgin
         🟡 Fix Continue editing delete button
     - Posts page sections
+        - Sort posts by created date, edited date, comments, ...etc
+        - add published marker to post cards
         🟡 Make post cards prettier
         🟠 Click to edit post/view post info
         ✅ Delete button w/modal
