@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import { createPost, getPost, getPosts, updatePost } from "../utils/postAPI";
 import { Editor } from "@tinymce/tinymce-react";
 import PublishIcon from '@mui/icons-material/Publish';
+import { router } from "../main";
 
 export default function PostEditor() {
   const location = useLocation();
@@ -88,6 +89,7 @@ export default function PostEditor() {
   
   const handleCancel = (e) => {
     // if post exists cancel post
+    router.navigate("/posts");
   };
 
 
