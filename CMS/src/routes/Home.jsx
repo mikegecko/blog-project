@@ -26,7 +26,9 @@ export default function Home() {
         </Box>
         <Box>
             <h4>Recently Published</h4>
-            <PostCard post={recentPublishedPost} />
+            {
+                recentPublishedPost.length === 0 ? <p>No posts yet</p> : <PostCard post={recentPublishedPost} />
+            }
         </Box>
         <h4>Recent Comments</h4>
 
