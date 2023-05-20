@@ -68,9 +68,9 @@ export default function Settings() {
     },[])
 
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+    <Box sx={{display: 'flex', flexDirection: 'column', overflow: 'auto', height: '100vh'}}>
       <h1>Settings</h1>
-      <Box sx={{display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap', padding: '1rem',  justifyContent: 'center'}}>
+      <Box sx={{display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap', padding: '1rem',  justifyContent: 'center', }}>
         <Box>
       <h4>Content moderation tools</h4>
       <Accordion sx={{width: "100%"}} >

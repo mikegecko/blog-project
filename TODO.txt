@@ -27,11 +27,11 @@ ________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     - Home page sections
         ✅ Continue editing - display most recent updated post that is not published
-        🟠 Recently published - display most recent updated post that is published (or create publish date)
+        ✅ Recently published - display most recent updated post that is published (or create publish date)
         🟡 Recent comments - comments not yet implemented
         🟡 Site stats - total number of users, comments, most recent user, ???...
         🟡 Rework home page desgin
-        🟡 Fix Continue editing delete button
+        🟡 Fix Continue editing & recently published delete button
     - Posts page sections
         - Sort posts by created date, edited date, comments, ...etc
         ✅ add published marker to post cards
@@ -45,7 +45,7 @@ ________________________________________________
         🟡 Implement delete button (or remove it)
         ✅ Publish button functions
         🟡 Add loading section for editor (tinymce takes a long time to render)
-        - Add button for creating new post -> navigate to new post so save button uses url id to save to proper location
+        🟡 Add button for creating new post -> navigate to new post so save button uses url id to save to proper location
     - Settings page sections
         🟠 Update User - add functions
         🟠 Delete User - add functions
@@ -62,6 +62,7 @@ ________________________________________________
     🟡 Add snackbar for errors, success, info
     🟡 Add loading status indicator for editor
     🟡 Redesign post list view
+    🟡 Add a preview page for published posts
     🟠 Add mobile views
     🟡 Do a design rework
     🟡 Update README
@@ -77,7 +78,7 @@ ________________________________________________
     🔴 Decide on what routes need to be protected
     🔴 Add authentication to protected routes
     🔴 Add routes for client retrieval of published posts
-        - recently published post
+        ✅ recently published post
         - all published posts
 ________________________________________________
                      BUGS
