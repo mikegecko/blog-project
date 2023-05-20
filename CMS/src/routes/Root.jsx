@@ -5,6 +5,8 @@ import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme, lightTheme } from '../components/Themes';
 import { useEffect } from 'react';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
 
 export default function Root () {
     const [colorMode, setColorMode] = useState('dark');
@@ -38,19 +40,21 @@ export default function Root () {
 
     return(
         <ThemeProvider theme={themeControl()}>
-        <Box className="" sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
-            <Box className="Sidebar gradient" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '15vw', gap: '1rem', height: '100vh'}}>
+        <Box className="" sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', height: '100vh', flexGrow: 1}}>
+            <Box className="Sidebar gradient" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '15vw', height: '100%', flexGrow: 1}}>
+                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '1rem', height: '90%', flexGrow: 1}}>
                 <Link to={`home`}>Home</Link>
                 <Link to={`posts`}>Posts</Link>
                 <Link to={`edit`}>Editor</Link>
                 <Link to={`settings`}>Settings</Link>
-                <Box>
+                </Box>
+                <Box sx={{height: '10%'}}>
                     <ToggleButtonGroup value={colorMode} exclusive onChange={handleColorMode}>
                         <ToggleButton value="light">
-                            Light
+                            <LightModeIcon />
                         </ToggleButton>
                         <ToggleButton value="dark">
-                            Dark
+                            <ModeNightIcon />
                         </ToggleButton>
                     </ToggleButtonGroup>
                 </Box>
