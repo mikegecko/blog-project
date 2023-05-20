@@ -132,7 +132,7 @@ export default function PostEditor() {
 
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column"}}>
+    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", overflow: 'auto'}}>
       <h1>Editor</h1>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField

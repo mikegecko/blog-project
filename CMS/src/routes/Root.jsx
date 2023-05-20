@@ -1,22 +1,34 @@
 import { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
 import '../App.css';
-import { Box } from "@mui/material";
+import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme, lightTheme } from '../components/Themes';
 import { useEffect } from 'react';
 
 export default function Root () {
-    const [colorMode, setColorMode] = useState('light');
+    const [colorMode, setColorMode] = useState('dark');
     const [mobileView, setMobileView] = useState(false);
     const breakpoint = 768;
 
+    const handleColorMode = (e, newColorMode) => {
+        if(newColorMode !== null){
+            if(colorMode === newColorMode){
+                return;
+            }
+            setColorMode(newColorMode);
+        }
+    }
+
     const themeControl = () => {
-        if(colorMode === 'light') {
+        if(colorMode === 'dark') {
             return(darkTheme);
         }
-        if(colorMode === 'dark') {
+        if(colorMode === 'light') {
             return(lightTheme);
+        }
+        else{
+            return(darkTheme);
         }
     }
 
@@ -32,6 +44,16 @@ export default function Root () {
                 <Link to={`posts`}>Posts</Link>
                 <Link to={`edit`}>Editor</Link>
                 <Link to={`settings`}>Settings</Link>
+                <Box>
+                    <ToggleButtonGroup value={colorMode} exclusive onChange={handleColorMode}>
+                        <ToggleButton value="light">
+                            Light
+                        </ToggleButton>
+                        <ToggleButton value="dark">
+                            Dark
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </Box>
             </Box>
             <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '85vw'}}>
                 <Outlet />

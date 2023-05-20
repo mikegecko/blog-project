@@ -31,7 +31,7 @@ export default function PostList() {
     };
     
     return(
-        <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", flexGrow: 1}}>
+        <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", flexGrow: 1, overflow: 'auto'}}>
             <h1>Posts</h1>
             <Grid sx={{padding: '1rem'}} container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
             {posts ? posts.map(post => {

@@ -8,7 +8,7 @@ export default function Home() {
   const { recentPublishedPost } = useLoaderData();
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column"}}>
+    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", overflow: 'auto'}}>
       <h1>Home</h1>
       <Box
         sx={{
