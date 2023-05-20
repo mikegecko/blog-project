@@ -34,14 +34,16 @@ ________________________________________________
         🟡 Fix Continue editing delete button
     - Posts page sections
         - Sort posts by created date, edited date, comments, ...etc
-        - add published marker to post cards
+        ✅ add published marker to post cards
         🟡 Make post cards prettier
         🟠 Click to edit post/view post info
         ✅ Delete button w/modal
     - Editor page sections
+        🟡 cancel button brings you back to posts
+        🟡 add function for unpublishing a post (maybe do this in settings)
         ✅ When saving, update existing post and relevant fields (currently saves as a new post)
         🟡 Implement delete button (or remove it)
-        🟡 Publish button functions
+        ✅ Publish button functions
         🟡 Add loading section for editor (tinymce takes a long time to render)
         - Add button for creating new post -> navigate to new post so save button uses url id to save to proper location
     - Settings page sections
