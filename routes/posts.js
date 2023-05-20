@@ -9,6 +9,10 @@ router.get('/', postController.getAllPosts);
 //GET most recent posts
 router.get('/recent', postController.getRecentPosts);
 
+//GET most recent published posts
+
+router.get('/recentpublished', postController.getRecentPublishedPosts);
+
 //GET a single post
 router.get('/:id', postController.getPostById);
 
