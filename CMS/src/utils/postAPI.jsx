@@ -58,3 +58,12 @@ export const recentPost = async() => {
         console.error(error);
     }
 }
+
+export const recentPublished_Post = async() => {
+    try{
+        const response = await axios.get("/api/posts/recentpublished");
+        return response.data;
+    }catch(error){
+        console.error(error);
+    }
+}

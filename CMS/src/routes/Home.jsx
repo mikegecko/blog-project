@@ -1,9 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { recentPost } from "../utils/postAPI";
 import PostCard from "../components/PostCard";
+import { recentPublished_Post } from "../utils/postAPI";
 import { Box } from "@mui/material";
 export default function Home() {
   const { recentEditPost } = useLoaderData();
+  const { recentPublishedPost } = useLoaderData();
 
   return (
     <>
@@ -22,8 +24,10 @@ export default function Home() {
           <h4>Continue editing</h4>
           <PostCard post={recentEditPost} />
         </Box>
-        <h4>Recently Published</h4>
-
+        <Box>
+            <h4>Recently Published</h4>
+            <PostCard post={recentPublishedPost} />
+        </Box>
         <h4>Recent Comments</h4>
 
         <h4>Site Stats</h4>
@@ -40,13 +44,13 @@ export async function homeLoader() {
   //Get total user count for comments / total comments
 
   const recentEditPost = await recentPost();
-  // const recentPublishedPost = await
+  const recentPublishedPost = await recentPublished_Post();
   // const recentComments = await
   // const userCount = await
 
   return {
     recentEditPost,
-    // recentPublishedPost,
+    recentPublishedPost,
     // recentComments,
     // userCount
   };
