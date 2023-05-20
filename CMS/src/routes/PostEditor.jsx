@@ -59,10 +59,8 @@ export default function PostEditor() {
         content: editorRef.current.getContent(),
         name: user.name,
         edited: now,
-        publishDate: null,
         likes: 0,
         comments: [],
-        published: false,
       };
       updatePost(postId, post);
     }
