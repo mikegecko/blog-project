@@ -27,7 +27,23 @@ export default function PostEditor() {
 
   const handlePublish = (e) => {
     // if post exists publish post
-  };
+    if(postId){
+      const now = Date.now();
+      const post = {
+        user: user._id,
+        title: postTitle,
+        content: editorRef.current.getContent(),
+        name: user.name,
+        edited: now,
+        publishDate: now,
+        likes: 0,
+        comments: [],
+        published: true,
+      };
+      updatePost(postId, post);
+      // navigate to post / preview / posts page / add confirmation
+  }
+}
   const handleDelete = (e) => {
     // if post exists delete post
   };
