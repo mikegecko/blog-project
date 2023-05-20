@@ -39,7 +39,7 @@ ________________________________________________
         🟠 Click to edit post/view post info
         ✅ Delete button w/modal
     - Editor page sections
-        🟡 cancel button brings you back to posts
+        ✅ cancel button brings you back to posts
         🟡 add function for unpublishing a post (maybe do this in settings)
         ✅ When saving, update existing post and relevant fields (currently saves as a new post)
         🟡 Implement delete button (or remove it)
@@ -79,7 +79,7 @@ ________________________________________________
     🔴 Add authentication to protected routes
     🔴 Add routes for client retrieval of published posts
         ✅ recently published post
-        - all published posts
+        🟠 all published posts
 ________________________________________________
                      BUGS
 ________________________________________________
