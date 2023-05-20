@@ -35,4 +35,12 @@ module.exports = {
             res.status(500).json(error)
         }
     },
+    getRecentPublishedPosts: async(req, res, next) => {
+        try{
+            const recentPublishedPost = await Post.find({published: true}).sort({publishDate: -1}).limit(1).exec();
+            res.json(recentPublishedPost[0]);
+        } catch(error){
+            res.status(500).json(error)
+        }
+    },
 };
