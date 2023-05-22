@@ -19,7 +19,6 @@ export default function PostList() {
         setDeleteModalOpen(false);
         console.log(selectedPost);
         if(selectedPost) {
-            //Bug: Need to call twice to rerender the page
             await deletePost(selectedPost);
             const posts = await getPosts();
             setPosts(posts);

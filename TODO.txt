@@ -22,6 +22,12 @@ ________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     - Figure out overall design for displaying blog posts
     - Figure out page structure for client app
+    - Client routes
+        - Login page for users that want to leave comments
+        - A main page which lists blog posts (maybe use a rotating carosel)
+        - Comment page for writing comments on the post (maybe have it at the bottom of the post)
+        - Post page for displaying blog posts
+        - Account page
     ____________________________________________
         CMS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -31,7 +37,7 @@ ________________________________________________
         🟡 Recent comments - comments not yet implemented
         🟡 Site stats - total number of users, comments, most recent user, ???...
         🟡 Rework home page desgin
-        🟡 Fix Continue editing & recently published delete button
+        🟠 Fix Delete button / add delete modal to recently published & continue editing
     - Posts page sections
         - Sort posts by created date, edited date, comments, ...etc
         ✅ add published marker to post cards
@@ -59,11 +65,12 @@ ________________________________________________
     - Sidebar page sections (root)
         🟡 Add icons for pages
         🟡 Update design
-    🟡 Add snackbar for errors, success, info
+        ✅ Add light/dark mode selector
+    🟠 Add snackbar for errors, success, info
     🟡 Add loading status indicator for editor
     🟡 Redesign post list view
-    🟡 Add a preview page for published posts
-    🟠 Add mobile views
+    🟠 Add a preview page for published posts
+    🔴 Add mobile views
     🟡 Do a design rework
     🟡 Update README
     ____________________________________________
