@@ -52,7 +52,7 @@ ________________________________________________
         - Subscribe section
         - Trending / What's hot / Best of the week
         - see all posts
-        - One large post thats Trending (or recently published)
+        - One large post thats Trending (or recently published) (maybe have this slide between posts)
         - two smaller posts in a column to the side
     - Post page sections
 
@@ -107,6 +107,8 @@ ________________________________________________
     🔵 Add cover image uploading for posts
     🔵 Add rich text element selection to tinyMce
     🔵 Preview page before publishing
+    🔵 Design method for parsing posts for displaying on blog Website
+        - Eg. Subheaders, Cover images, sub images
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
