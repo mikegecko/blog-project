@@ -14,7 +14,6 @@ export default function Root() {
         </Box>
         </ThemeProvider>
     )
-
 }
 
 export async function rootLoader () {
