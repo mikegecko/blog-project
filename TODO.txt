@@ -23,11 +23,19 @@ ________________________________________________
     - Figure out overall design for displaying blog posts
     - Figure out page structure for client app
     - Client routes
+        - recent page for blog
         - Login page for users that want to leave comments
         - A main page which lists blog posts (maybe use a rotating carosel)
         - Comment page for writing comments on the post (maybe have it at the bottom of the post)
         - Post page for displaying blog posts
         - Account page
+        ROUTES:
+        /
+        /recent
+        /post
+        /post/:id
+        /account
+        /login
     ____________________________________________
         CMS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
