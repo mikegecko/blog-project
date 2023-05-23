@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
 
-export default function PostView() {
+export default function PostList() {
     return(
         <Box>
-            Post view
+            Post list
         </Box>
     )
 }
 
-export async function postViewLoader () {
+export async function postListLoader() {
     return null;
 }

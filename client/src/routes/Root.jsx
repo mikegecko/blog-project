@@ -1,4 +1,4 @@
-import { Box, ThemeProvider } from "@mui/material";
+import { Box, InputBase, ThemeProvider } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 import { darkTheme } from "../components/Themes";
 
@@ -15,7 +15,7 @@ export default function Root() {
                     <Link to={`about`}>About us</Link>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '1rem', pr: '1rem', alignItems: 'center' }} className="navbar-right">
-                    <Link to={``}>Search</Link>
+                    <InputBase />
                     <Link to={`login`}>Login</Link>
                     <Link to={`signup`}>Signup</Link>
                 </Box>

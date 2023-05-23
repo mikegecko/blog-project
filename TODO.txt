@@ -35,10 +35,12 @@ ________________________________________________
         - Account page
         ROUTES:
         /
+        /login
+        /signup
         /recent
-        /post
+        /posts
         /post/:id
-        /account
+        /account or /account/:id
         /login
     - Root page sections
         - Header section bar with nav controls (left -> right)
