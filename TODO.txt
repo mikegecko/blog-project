@@ -50,6 +50,7 @@ ________________________________________________
             - About?
             - Search?
             - Login / Sign up buttons (when logged in replace with avatar?)
+        - Add custom link and button styling with animations
     - Home page sections
         - Subscribe section
         - Trending / What's hot / Best of the week
