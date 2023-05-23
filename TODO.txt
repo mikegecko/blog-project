@@ -20,6 +20,10 @@ ________________________________________________
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    - Inspiration for design:
+        [https://dribbble.com/shots/19771164-Blog-home-page-Untitled-UI]
+        [https://dribbble.com/shots/20895614-Blog-and-Magazine-Website]
+        [https://dribbble.com/shots/19997553-365MAG]
     - Figure out overall design for displaying blog posts
     - Figure out page structure for client app
     - Client routes
@@ -36,6 +40,22 @@ ________________________________________________
         /post/:id
         /account
         /login
+    - Root page sections
+        - Header section bar with nav controls (left -> right)
+            - Logo
+            - Home
+            - Articles
+            - About?
+            - Search?
+            - Login / Sign up buttons (when logged in replace with avatar?)
+    - Home page sections
+        - Subscribe section
+        - Trending / What's hot / Best of the week
+        - see all posts
+        - One large post thats Trending (or recently published)
+        - two smaller posts in a column to the side
+    - Post page sections
+
     ____________________________________________
         CMS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
