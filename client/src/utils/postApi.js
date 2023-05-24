@@ -16,7 +16,7 @@ export const getRecentPublishedPost = async() => {
         console.error(error);
     }
 }
-//TODO: write api endpoint functions
+//TODO: write api endpoint functions 
 export const getAllPublishedPosts = async() => {
     try{
         const response = await axios.get("/api/posts/allpublished");
