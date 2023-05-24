@@ -7,3 +7,7 @@ export default function About(){
         </Box>
     )
 }
+
+export async function aboutLoader() {
+    return null;
+}

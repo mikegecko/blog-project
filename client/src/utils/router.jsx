@@ -6,6 +6,7 @@ import PostView, { postViewLoader } from "../routes/PostView";
 import PostList, { postListLoader } from "../routes/PostList";
 import Login, { loginLoader } from "../routes/Login";
 import Signup, { signupLoader } from "../routes/Signup";
+import About, { aboutLoader } from "../routes/About";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
         loader: signupLoader,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        loader: aboutLoader,
       },
     ],
   },
