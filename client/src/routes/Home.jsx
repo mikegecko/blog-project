@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import { Box, Paper, Typography } from "@mui/material";
+import { Link, useLoaderData } from "react-router-dom";
 import { getAllPublishedPosts, getRecentPublishedPost } from "../utils/postApi";
 
 export default function Home(){
@@ -9,19 +9,28 @@ export default function Home(){
     return(
         <Box sx={{display: 'flex', flexDirection: "row", width: '100%', height: '100%'}}>
             <Box sx={{display: 'flex', flexDirection: 'column', width: '75%', height: '100%'}}>
-                <Box>
-                    Best of the week
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', height: '25%', padding: '2rem'}}>
+                    <Typography variant="h2" style={{fontStyle: "italic"}}>
+                        Best of the week
+                    </Typography>
+                    <Link style={{marginBottom: '10px'}} to={'posts'}>See all posts →</Link>
                 </Box>
-                <Box>
-                    Main card
+                <Box sx={{ display: 'flex', flexDirection: 'column', height: '75%', justifyContent: 'center', margin: '2rem 0rem 2rem 2rem'}}>
+                    <Paper sx={{height: '100%', borderRadius: '1rem'}}>
+                        Main card
+                    </Paper>
                 </Box>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '25%', height: '100%'}}>
-                <Box>
+                <Box sx={{ height: '40%', margin: '2rem 2rem 0 2rem' }}>
+                    <Paper sx={{height: '100%', borderRadius: '1rem'}}>
                     square card 1
+                    </Paper>
                 </Box>
-                <Box>
+                <Box sx={{ height: '40%', margin: '2rem' }}>
+                <Paper sx={{height: '100%', borderRadius: '1rem'}}>
                     square card 2
+                    </Paper>
                 </Box>
             </Box>
         </Box>
