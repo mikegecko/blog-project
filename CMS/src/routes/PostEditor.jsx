@@ -13,6 +13,8 @@ export default function PostEditor() {
   const postId = location.pathname.split("/")[2] || null;
   const [editorReady, setEditorReady] = useState(false);
   const [postTitle, setPostTitle] = useState("");
+  const [coverImage, setCoverImage] = useState(null);
+  const [coverImageString, setCoverImageString] = useState("");
   const [postContent, setPostContent] = useState("");
   const editorRef = useRef(null);
   const [user, setUser] = useState(useLoaderData());
@@ -72,6 +74,7 @@ export default function PostEditor() {
       const post = {
         user: user._id,
         title: postTitle,
+        coverImage: coverImage,
         content: editorRef.current.getContent(),
         name: user.name,
         created: now,
@@ -111,6 +114,8 @@ export default function PostEditor() {
       //console.log(post.content);
       setPostTitle(post.title);
       setPostContent(post.content);
+      setCoverImageString(post.coverImage);
+      setCoverImage(URL.createObjectURL(post.coverImage));
       return;
     };
     const postLoader = async () => {
@@ -130,11 +135,39 @@ export default function PostEditor() {
     setEditorReady(true);
   }
 
+  const handleCoverImageUpload = (e) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      setCoverImage(e.target.result);
+      const base64 = e.target.result.replace(/^data:image\/(png|jpeg);base64,/, "");
+      setCoverImageString(base64);
+    }
+    reader.readAsDataURL(file);
+  }
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", overflow: 'auto'}}>
+    <Box sx={{ height: "100vh", width: '100%', display: "flex", flexDirection: "column", overflow: 'auto', alignItems: 'center'}}>
       <h1>Editor</h1>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <Box sx={{display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', mb: '1rem',}}>
+      <input
+          accept="image/*"
+          id="image-upload"
+          type="file"
+          style={{ display: 'none' }}
+          onChange={handleCoverImageUpload}
+        />
+        {coverImage && (
+          <Box sx={{display: "flex", flexDirection: "column", gap: 2, width: '50%', alignItems: 'center'}}>
+            <img src={coverImage} alt="cover" style={{ width: "100%", alignSelf: "center"}} />
+          </Box>
+        )}
+        <label htmlFor="image-upload">
+        <Button variant="contained" component="span" ><PublishIcon />Upload cover image</Button>
+        </label>
+      </Box>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width: '50%', alignItems: 'center' }}>
         <TextField
           name="title"
           label="Post Title"
