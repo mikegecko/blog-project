@@ -44,23 +44,23 @@ ________________________________________________
         /login
     - Root page sections
         - Header section bar with nav controls (left -> right)
-            - Logo
-            - Home
-            - Articles
-            - About?
-            - Search?
-            - Login / Sign up buttons (when logged in replace with avatar?)
-        - Add custom link and button styling with animations
+            🟡 Logo
+            ✅ Home
+            ✅ Articles
+            ✅ About?
+            🟠 Search?
+            🔴 Login / Sign up buttons (when logged in replace with avatar?)
+        🟠 Add custom link and button styling with animations
     - Home page sections
         🟡 Subscribe section
         ✅ Trending / What's hot / Best of the week
         ✅ see all posts
         ✅ One large post thats Trending (or recently published) (maybe have this slide between posts)
         ✅ two smaller posts in a column to the side
-        🔴 Main card fancy title
-            ✅ Fancy title functions
-            ✅ Fancy title styles
-            🔴 Fancy title inverted border radius
+        ✅ Main card fancy title
+        🟠 Main card post date bubble
+        🟠 Main card cover image
+        🟠 Main card actions (do i make main card into a rotating carousel)
     - Post page sections
 
     ____________________________________________
@@ -87,6 +87,7 @@ ________________________________________________
         ✅ Publish button functions
         🟡 Add loading section for editor (tinymce takes a long time to render)
         🟡 Add button for creating new post -> navigate to new post so save button uses url id to save to proper location
+        🔴 Add a cover image upload section + saving in backend
     - Settings page sections
         🟠 Update User - add functions
         🟠 Delete User - add functions
@@ -119,6 +120,9 @@ ________________________________________________
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    🔴 Add more fields to post model:
+        🔴 topic
+        🔴 cover image
     🔴 Decide on what routes need to be protected
     🔴 Add authentication to protected routes
     🔴 Add routes for client retrieval of published posts
@@ -127,9 +131,13 @@ ________________________________________________
 ________________________________________________
                      BUGS
 ________________________________________________
-
-    ⚠️ When JWT expires reroute to login page not 404 page - display error message
+    ---CLIENT---
+    ⚠️ Fancy title overflows box with large titles -> increase amount of lines for fancy title from 3 when title exceeds maximum char limit
+    ⚠️ Inverted border raidus corners do not change color with light/darkmode changes
+    ---CMS---
     ⚠️ Add return conditions for failed connections from loader functions for routes
+    ---BACKEND---
+    ⚠️ When JWT expires reroute to login page not 404 page - display error message
     ✅ Fix settings page expanding to greater than window height causing scrollbars to appear
 ________________________________________________
               COMPLETED FEATURES/TASKS
