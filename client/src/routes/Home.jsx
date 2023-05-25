@@ -71,9 +71,7 @@ export default function Home() {
                     </Paper>
                     </Box>
                 <Box sx={{ width: "100%", justifySelf: "flex-start", padding: '1rem' }}>
-                  <Paper elevation={2} sx={{ width: 'max-content'}}>
                     <FancyTitle title={recentPost.title} />
-                  </Paper>
                 </Box>
               </Box>
               <Box>Actions</Box>
