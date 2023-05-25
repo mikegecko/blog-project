@@ -2,3 +2,80 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.fancy-title{
+  font-weight: 300;
+  font-family: 'Montserrat';
+  font-size: 2rem;
+  line-height: 1.5rem;
+  background-color: #888888;
+  width: max-content;
+  border-radius: .75rem;
+  padding: .5rem 1rem .5rem 1rem;
+}
+
+.fancy-title-top{
+  padding: 1rem;
+  border-radius: 0 .75rem .75rem 0;
+}
+
+.fancy-title-middle{
+  position: relative;
+  border-radius: 0 0 .75rem 0;
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.fancy-title-bottom{
+  position: relative;
+  padding-bottom: 1rem;
+  padding-top: 0;
+  border-radius: 0 0 .75rem .75rem;
+}
+.fancy-title-topic{
+  position: relative;
+  font-size: .75rem;
+  padding: .2rem 1rem 0 1rem;
+  border-radius: .75rem .75rem 0 0;
+}
+.fancy-title-topic-dot{
+  font-size: 1rem;
+}
+
+.fancy-title-container{
+  position: relative
+}
+
+
+.fancy-title-middle::after {
+  --size: .75rem;
+  content: '';
+  aspect-ratio: 1;
+  position: absolute;
+  width: 1rem;
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  top: -.25rem;
+  right: -.75rem;
+}
+
+.fancy-title-bottom::after{
+  --size: .75rem;
+  content: '';
+  aspect-ratio: 1;
+  position: absolute;
+  width: 1rem;
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  top: -.25rem;
+  right: -.75rem;
+}
+
+.fancy-title-topic::after{
+  --size: 1rem;
+  content: '';
+  aspect-ratio: 1;
+  position: absolute;
+  width: 1rem;
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  bottom: 0;
+  right: -1rem;
+  rotate: -90deg;
+}
