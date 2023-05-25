@@ -43,11 +43,11 @@ export default function FancyTitle({title}) {
     //console.log(longestLine, middleLine, shortestLine);
 
     return(
-        <Box className="fancy-title-container" sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', backgroundColor: '#0d0d0d', padding: '1rem', borderRadius: '1rem', margin: '1rem', width: 'max-content'}}>
-            <Typography className="fancy-title fancy-title-topic" variant="p"><span className="fancy-title-topic-dot">•</span> Topic</Typography>
-            <Typography className="fancy-title fancy-title-top" variant="p">{longestLine}</Typography>
-            <Typography className="fancy-title fancy-title-middle" variant="p">{middleLine}</Typography>
-            <Typography className="fancy-title fancy-title-bottom" variant="p">{shortestLine}</Typography>
+        <Box className="fancy-title-container" sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1rem', borderRadius: '1rem', margin: '1rem', width: 'max-content'}}>
+            <Typography sx={{backgroundColor: 'background.default'}} className="fancy-title fancy-title-topic" variant="p"><span className="fancy-title-topic-dot">•</span> Topic</Typography>
+            <Typography sx={{backgroundColor: 'background.default'}} className="fancy-title fancy-title-top" variant="p">{longestLine}</Typography>
+            <Typography sx={{backgroundColor: 'background.default'}} className="fancy-title fancy-title-middle" variant="p">{middleLine}</Typography>
+            <Typography sx={{backgroundColor: 'background.default'}} className="fancy-title fancy-title-bottom" variant="p">{shortestLine}</Typography>
         </Box>
     )
 }

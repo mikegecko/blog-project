@@ -4,11 +4,12 @@
 }
 
 .fancy-title{
+  --bg-color: #121212;
   font-weight: 300;
   font-family: 'Montserrat';
   font-size: 2rem;
   line-height: 1.5rem;
-  background-color: #888888;
+  background-color: #121212;
   width: max-content;
   border-radius: .75rem;
   padding: .5rem 1rem .5rem 1rem;
@@ -52,7 +53,7 @@
   aspect-ratio: 1;
   position: absolute;
   width: 1rem;
-  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), var(--bg-color) var(--size) );
   top: -.25rem;
   right: -.75rem;
 }
@@ -63,7 +64,7 @@
   aspect-ratio: 1;
   position: absolute;
   width: 1rem;
-  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), var(--bg-color) var(--size) );
   top: -.25rem;
   right: -.75rem;
 }
@@ -74,7 +75,7 @@
   aspect-ratio: 1;
   position: absolute;
   width: 1rem;
-  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), #888888 var(--size) );
+  background-image: radial-gradient(circle at 100% 100%, transparent var(--size), var(--bg-color) var(--size) );
   bottom: 0;
   right: -1rem;
   rotate: -90deg;
