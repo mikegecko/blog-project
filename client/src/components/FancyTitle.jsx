@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function FancyTitle({title}) {
     const chars = title.split('');
@@ -31,22 +31,23 @@ export default function FancyTitle({title}) {
     }
 
     const [part1, part2, part3] = splitIntoThreePartsUnequal(titleCharLength);
-    console.log(part1, part2, part3);
+    //console.log(part1, part2, part3);
     const res1 = findWordByCharacterIndex(title, part1);
     const res2 = findWordByCharacterIndex(title, part1 + part2);
     const res3 = findWordByCharacterIndex(title, part1 + part2 + part3);
-    console.log(res1, res2, res3);
+    //console.log(res1, res2, res3);
 
     const longestLine = words.slice(0, res1.wordIndex + 1).join(' ');
     const middleLine = words.slice(res1.wordIndex + 1, res2.wordIndex + 1).join(' ');
     const shortestLine = words.slice(res2.wordIndex + 1).join(' ');
+    //console.log(longestLine, middleLine, shortestLine);
 
-    console.log(longestLine, middleLine, shortestLine);
     return(
-        <Box>
-            <p>{longestLine}</p>
-            <p>{middleLine}</p>
-            <p>{shortestLine}</p>
+        <Box className="fancy-title-container" sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', backgroundColor: '#0d0d0d', padding: '1rem', borderRadius: '1rem', margin: '1rem', width: 'max-content'}}>
+            <Typography className="fancy-title fancy-title-topic" variant="p"><span className="fancy-title-topic-dot">•</span> Topic</Typography>
+            <Typography className="fancy-title fancy-title-top" variant="p">{longestLine}</Typography>
+            <Typography className="fancy-title fancy-title-middle" variant="p">{middleLine}</Typography>
+            <Typography className="fancy-title fancy-title-bottom" variant="p">{shortestLine}</Typography>
         </Box>
     )
 }

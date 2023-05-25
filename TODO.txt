@@ -52,11 +52,15 @@ ________________________________________________
             - Login / Sign up buttons (when logged in replace with avatar?)
         - Add custom link and button styling with animations
     - Home page sections
-        - Subscribe section
-        - Trending / What's hot / Best of the week
-        - see all posts
-        - One large post thats Trending (or recently published) (maybe have this slide between posts)
-        - two smaller posts in a column to the side
+        🟡 Subscribe section
+        ✅ Trending / What's hot / Best of the week
+        ✅ see all posts
+        ✅ One large post thats Trending (or recently published) (maybe have this slide between posts)
+        ✅ two smaller posts in a column to the side
+        🔴 Main card fancy title
+            ✅ Fancy title functions
+            ✅ Fancy title styles
+            🔴 Fancy title inverted border radius
     - Post page sections
 
     ____________________________________________
