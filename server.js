@@ -24,6 +24,7 @@ app.use(cors({
   origin: '*', // Change to origin: ['https://example.com', 'https://another.example.com']
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  limit: '10mb',
 }));
 //Use react for views
 app.use(express.static(path.join(__dirname, "client", "dist")));
