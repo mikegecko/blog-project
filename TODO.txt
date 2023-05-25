@@ -137,6 +137,7 @@ ________________________________________________
     ---CMS---
     ⚠️ Add return conditions for failed connections from loader functions for routes
     ---BACKEND---
+    ⚠️ 431 Sever error header too large when trying to load a post with an image stored in base64 (use either cloud storage / lazy loading / chunked transfer encoding)
     ⚠️ When JWT expires reroute to login page not 404 page - display error message
     ✅ Fix settings page expanding to greater than window height causing scrollbars to appear
 ________________________________________________
