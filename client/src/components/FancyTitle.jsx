@@ -13,13 +13,35 @@ export default function FancyTitle({title}) {
         const part3 = Math.floor(totalLength * 0.2);
         return[part1, part2, part3];
     }
+
+    const findWordByCharacterIndex = (string, charIndex) => {
+        const words = string.split(' ');
+        let currPos = 0;
+
+        for(let i = 0; i< words.length; i++){
+            let word = words[i];
+            let end = word.length + 1; //Plus one to account for space
+            currPos += end;
+            if(charIndex <= currPos){
+                let wordIndex = i;
+                return {word, wordIndex};
+            }
+        }
+        return(null);
+    }
+
     const [part1, part2, part3] = splitIntoThreePartsUnequal(titleCharLength);
     console.log(part1, part2, part3);
+    const res1 = findWordByCharacterIndex(title, part1);
+    const res2 = findWordByCharacterIndex(title, part1 + part2);
+    const res3 = findWordByCharacterIndex(title, part1 + part2 + part3);
+    console.log(res1, res2, res3);
 
-    const longestLine = chars.slice(0, part1).join(' ');
-    const middleLine = chars.slice(part1, part1 + part2).join(' ');
-    const shortestLine = chars.slice(part1 + part2).join(' ');
+    const longestLine = words.slice(0, res1.wordIndex + 1).join(' ');
+    const middleLine = words.slice(res1.wordIndex + 1, res2.wordIndex + 1).join(' ');
+    const shortestLine = words.slice(res2.wordIndex + 1).join(' ');
 
+    console.log(longestLine, middleLine, shortestLine);
     return(
         <Box>
             <p>{longestLine}</p>
