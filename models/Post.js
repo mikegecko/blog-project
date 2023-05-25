@@ -34,6 +34,10 @@ const PostSchema = new Schema({
         default: Date.now,
         required: false,
     },
+    coverImage:{
+        type: String,
+        required: false,
+    },
     likes: { type:  Number, default: 0 },
     comments: [{ type: Schema.Types.ObjectId, ref: 'comment'}],
     published: { type: Boolean, default: false },
