@@ -6,6 +6,7 @@ const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const { db_connect } = require('./utils/db');
 //Environment vars
 const PORT = process.env.PORT || 3000;
@@ -18,7 +19,7 @@ const postsRouter = require('./routes/posts');
 // const usersRouter = require('./routes/users');
 
 const app = express();
-
+app.set('maxHeaderSize', 10485760);
 // CORS 
 app.use(cors({
   origin: '*', // Change to origin: ['https://example.com', 'https://another.example.com']
@@ -33,6 +34,8 @@ app.use(logger("dev"));
 app.use(express.json({})); //Use json instead of html
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 
 //Connect to database
 db_connect();
@@ -72,5 +75,4 @@ app.use(function (err, req, res, next) {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-
 module.exports = app;
