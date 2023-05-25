@@ -36,6 +36,7 @@ export default function PostEditor() {
         user: user._id,
         title: postTitle,
         content: editorRef.current.getContent(),
+        coverImage: coverImageString,
         name: user.name,
         edited: now,
         publishDate: now,
@@ -60,6 +61,7 @@ export default function PostEditor() {
         user: user._id,
         title: postTitle,
         content: editorRef.current.getContent(),
+        coverImage: coverImageString,
         name: user.name,
         edited: now,
         likes: 0,
@@ -74,7 +76,7 @@ export default function PostEditor() {
       const post = {
         user: user._id,
         title: postTitle,
-        coverImage: coverImage,
+        coverImage: coverImageString,
         content: editorRef.current.getContent(),
         name: user.name,
         created: now,
@@ -115,7 +117,8 @@ export default function PostEditor() {
       setPostTitle(post.title);
       setPostContent(post.content);
       setCoverImageString(post.coverImage);
-      setCoverImage(URL.createObjectURL(post.coverImage));
+      setCoverImage(post.coverImage);
+      //console.log(post.coverImage);
       return;
     };
     const postLoader = async () => {
@@ -158,11 +161,11 @@ export default function PostEditor() {
           style={{ display: 'none' }}
           onChange={handleCoverImageUpload}
         />
-        {coverImage && (
+        {!coverImage ? 'No Image' :
           <Box sx={{display: "flex", flexDirection: "column", gap: 2, width: '50%', alignItems: 'center'}}>
             <img src={coverImage} alt="cover" style={{ width: "100%", alignSelf: "center"}} />
           </Box>
-        )}
+        }
         <label htmlFor="image-upload">
         <Button variant="contained" component="span" ><PublishIcon />Upload cover image</Button>
         </label>
