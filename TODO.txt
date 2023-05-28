@@ -17,6 +17,9 @@ ________________________________________________
         🟠 update post
         🟠 delete post
     🟠 Create new route for getting most recent published post
+    - Add a max width to both client & CMS to prevent stretching
+    - Setup firebase cloud storage for post images
+    - Setup firebase user sign in? so users dont need to use email to signup
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -132,6 +135,7 @@ ________________________________________________
                      BUGS
 ________________________________________________
     ---CLIENT---
+    ⚠️ Fancy title breaks with short titles -> do not render other lines for short titles, use a minimum char limit
     ⚠️ Fancy title overflows box with large titles -> increase amount of lines for fancy title from 3 when title exceeds maximum char limit
     ⚠️ Inverted border raidus corners do not change color with light/darkmode changes
     ---CMS---
