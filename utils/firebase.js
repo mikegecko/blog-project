@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
+const { initializeApp } = require('firebase-admin/app');
+//const { getAnalytics } = require('firebase-admin/analytics');
+const { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable, deleteObject } = require('firebase-admin/storage');
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,7 +19,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//const analytics = getAnalytics(app);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 const metadata = {
@@ -122,3 +122,4 @@ const deleteImage = async(path, fileName) => {
     console.log(error);
   }
 }
+module.exports = { uploadImageBase64,  uploadImageBytes, convertBase64toBlob, deleteImage };
