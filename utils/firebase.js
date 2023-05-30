@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,12 +22,93 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
+const metadata = {
+  contentType: 'image/jpeg',
+};
 
-const createStorageRef = (path) => {
-    const storageRef = ref(storage, path);
+const createStorageRef = (path, fileName) => {
+    const storageRef = ref(storage, path + '/' + fileName);
     return storageRef;
 }
-const uploadImage = (file, path) => {
-
-    
+const uploadImageBytes = (file, path) => {
+  const uploadTask = uploadBytesResumable(createStorageRef(path, file.name), file, metadata);
+  
+  uploadTask.on('state_changed',
+    (snapshot) => {
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case 'paused':
+          console.log('Upload is paused');
+          break;
+        case 'running':
+          console.log('Upload is running');
+          break;
+      }
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+      switch(error.code) {
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+        case 'storage/unknown':
+          // Unknown error occurred, inspect the server response
+          break;
+        // ... other errors
+      }
+    },
+    () => {
+      // Upload successful
+      const downloadURL = getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        console.log('File available at', url);
+      });
+    })
 }
+const uploadImageBase64 = (file, path) => {
+  const uploadTask = uploadString(createStorageRef(path, file.name), file, 'base64', metadata);
+  
+  uploadTask.on('state_changed',
+    (snapshot) => {
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case 'paused':
+          console.log('Upload is paused');
+          break;
+        case 'running':
+          console.log('Upload is running');
+          break;
+      }
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+      switch(error.code) {
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+        case 'storage/unknown':
+          // Unknown error occurred, inspect the server response
+          break;
+        // ... other errors
+      }
+    },
+    () => {
+      // Upload successful
+      const downloadURL = getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        console.log('File available at', url);
+      });
+    })
+}
+const convertBase64toBlob = (file) => {
+  const blob =  new Blob([file], { type: 'image/jpeg' });
+  return blob;
+}
+
+
