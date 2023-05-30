@@ -27,6 +27,7 @@ const metadata = {
 };
 
 const createStorageRef = (path, fileName) => {
+  // BUG: ref is not a function
     const storageRef = ref(storage, path + '/' + fileName);
     return storageRef;
 }
@@ -105,6 +106,7 @@ const uploadImageBase64 = (file, path) => {
       // Rewrite using async/await
       const downloadURL = getDownloadURL(uploadTask.snapshot.ref).then((url) => {
         console.log('File available at', url);
+        return url;
       });
     })
 }
