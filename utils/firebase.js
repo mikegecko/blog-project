@@ -63,6 +63,7 @@ const uploadImageBytes = (file, path) => {
     },
     () => {
       // Upload successful
+      // Rewrite using async/await
       const downloadURL = getDownloadURL(uploadTask.snapshot.ref).then((url) => {
         console.log('File available at', url);
       });
@@ -101,6 +102,7 @@ const uploadImageBase64 = (file, path) => {
     },
     () => {
       // Upload successful
+      // Rewrite using async/await
       const downloadURL = getDownloadURL(uploadTask.snapshot.ref).then((url) => {
         console.log('File available at', url);
       });
