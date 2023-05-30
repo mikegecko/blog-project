@@ -43,4 +43,12 @@ module.exports = {
             res.status(500).json(error)
         }
     },
+    getAllPublishedPosts: async(req, res, next) => {
+        try{
+            const allPublishedPosts = await Post.find({published: true}).sort({publishDate: -1});
+            res.json(allPublishedPosts);
+        } catch(error){
+            res.status(500).json(error);
+        }
+    },
 };

@@ -13,6 +13,9 @@ router.get('/recent', postController.getRecentPosts);
 
 router.get('/recentpublished', postController.getRecentPublishedPosts);
 
+//GET all published posts
+router.get('/allpublished', postController.getAllPublishedPosts);
+
 //GET a single post
 router.get('/:id', postController.getPostById);
 
