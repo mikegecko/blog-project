@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -111,4 +111,12 @@ const convertBase64toBlob = (file) => {
   return blob;
 }
 
-
+const deleteImage = async(path, fileName) => {
+  const deleteRef = ref(storage, path + '/' + fileName);
+  try{
+    const res = await deleteObject(deleteRef);
+    console.log(res);
+  } catch(error){
+    console.log(error);
+  }
+}
