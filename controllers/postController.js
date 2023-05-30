@@ -18,13 +18,16 @@ module.exports = {
         }
     },
     createPost: async (req, res, next) => {
+        // TODO: Use firebase to upload image and save url to post
         const newPost = new Post(req.body);
         newPost.save().then((post) => res.json(post)).catch((err) => next(err));
     },
     updatePost: async (req, res, next) => {
+        // TODO: Use firebase to upload image and save url to post
         Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((post) => res.json(post)).catch((err) => next(err));
     },
     deletePost: async (req, res, next) => {
+        // TODO: Use firebase to delete image in cloud storage
         Post.findByIdAndDelete(req.params.id).then((post) => res.json(post)).catch((err) => next(err));
     },
     getRecentPosts: async (req, res, next) => {

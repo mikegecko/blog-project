@@ -17,7 +17,9 @@ router.get('/user/:id', authController.verifyTokenAdminInternal, authController.
 //GET All users
 router.get('/users',authController.verifyTokenAdminInternal, authController.getAllUsers);
 //PUT Update user
+//TODO: Protect this route with a more secure method
 router.put('/user/:id',authController.verifyTokenInternal, authController.updateUser);
 //DELETE Delete user
+//TODO: Protect this route with a more secure method
 router.delete('/user/:id',authController.verifyTokenInternal, authController.deleteUser);
 module.exports = router;
