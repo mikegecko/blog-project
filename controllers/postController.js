@@ -1,4 +1,5 @@
 const Post = require('../models/Post');
+const firebase = require('../utils/firebase');
 
 module.exports = {
     getAllPosts: async (req, res, next) => {
@@ -19,11 +20,18 @@ module.exports = {
     },
     createPost: async (req, res, next) => {
         // TODO: Use firebase to upload image and save url to post
-        const newPost = new Post(req.body);
-        newPost.save().then((post) => res.json(post)).catch((err) => next(err));
+        const file = req.body.coverImage;
+        try{
+            const res = await firebase.uploadImageBase64(file, req.body.id);
+            console.log(res);
+        }catch(error){
+            console.log(error);
+        }
+        //const newPost = new Post(req.body);
+        //newPost.save().then((post) => res.json(post)).catch((err) => next(err));
     },
     updatePost: async (req, res, next) => {
-        // TODO: Use firebase to upload image and save url to post
+        // TODO: Use firebase to upload image and delete old image then save url to post
         Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((post) => res.json(post)).catch((err) => next(err));
     },
     deletePost: async (req, res, next) => {
