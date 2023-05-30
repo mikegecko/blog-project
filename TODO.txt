@@ -123,14 +123,12 @@ ________________________________________________
     ____________________________________________
     BACKEND/Express/MongoDB
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    🔴 Add more fields to post model:
-        🔴 topic
-        🔴 cover image
     🔴 Decide on what routes need to be protected
     🔴 Add authentication to protected routes
-    🔴 Add routes for client retrieval of published posts
-        ✅ recently published post
-        🟠 all published posts
+    🔴 Add firebase cloud storage for cover images
+        🔴 Saving image to storage
+        🔴 Saving url result to MongoDB
+    🟡 Add cloud storage for images in content section of post
 ________________________________________________
                      BUGS
 ________________________________________________
@@ -154,3 +152,9 @@ ________________________________________________
     ✅ Update edit field when saving to existing post
     ✅ Create new route for getting most recent post
     ✅ Implement saving/updating existing post
+    ✅ Add routes for client retrieval of published posts:
+        ✅ recently published post
+        ✅ all published posts
+    ✅ Add more fields to post model:
+        ✅ topic
+        ✅ cover image url
