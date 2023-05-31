@@ -18,8 +18,9 @@ ________________________________________________
         🟠 delete post
     🟠 Create new route for getting most recent published post
     - Add a max width to both client & CMS to prevent stretching
-    - Setup firebase cloud storage for post images
-    - Setup firebase user sign in? so users dont need to use email to signup
+    🔴 Setup firebase cloud storage for post images
+    🔴 Setup firebase user sign in? so users dont need to use email to signup
+    🔴 Fix ref is not a function error in firebase.js
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
