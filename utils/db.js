@@ -14,7 +14,7 @@ async function db_connect() {
   } catch(error){
     console.log(error);
     if(error.code === 'ECONNREFUSED'){
-      console.log('\u001b[' + 31 + 'm' + 'No connection, starting in offline mode...' + '\u001b[0m');
+      console.log('\u001b[' + 31 + 'm' + 'No connection...' + '\u001b[0m');
     }
   }
 }
