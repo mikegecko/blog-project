@@ -21,6 +21,7 @@ ________________________________________________
     🔴 Setup firebase cloud storage for post images
     🔴 Setup firebase user sign in? so users dont need to use email to signup
     🔴 Fix ref is not a function error in firebase.js
+    🔴 Remake create new post button in /posts in CMS
     ____________________________________________
         Client
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
