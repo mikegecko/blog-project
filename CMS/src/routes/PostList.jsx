@@ -33,10 +33,10 @@ export default function PostList() {
     return(
         <Box sx={{ height: "100vh", display: "flex", flexDirection: "column", flexGrow: 1, overflow: 'auto'}}>
             <h1>Posts</h1>
-            <Grid sx={{padding: '1rem'}} container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
-                <Grid item xs={2} sm={4} md={4} lg={4} xl={4}>
-                    <Box>
-                        <Button onClick={router.navigate('/edit')}>Create new post</Button>
+            <Grid sx={{padding: '1rem 3rem 1rem 1rem'}} container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
+                <Grid key={'create'} item xs={2} sm={4} md={4} lg={4} xl={4}>
+                    <Box sx={{padding: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',  }}>
+                        <Button onClick={() => router.navigate('/edit')}>Create new post</Button>
                     </Box>
                 </Grid>
             {posts ? posts.map(post => {
