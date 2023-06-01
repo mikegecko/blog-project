@@ -32,7 +32,7 @@ export default function PostCard(props){
 
     return(
         <Box sx={{padding: 2}} >
-            <ButtonBase onClick={handlePostClick} sx={{width: '100%'}}>
+            <Box onClick={handlePostClick} sx={{width: '100%', cursor: 'pointer'}}>
             <Paper variant="outlined" elevation={0} sx={{padding: 2,  width: '100%'}}>
                 <Typography variant="h6" gutterBottom>{post.title}</Typography>
                 <Typography variant="subtitle" sx={{color: 'text.secondary'}} gutterBottom>Edited: {formattedEditDate}</Typography>
@@ -47,7 +47,7 @@ export default function PostCard(props){
                 </Box>
                 </Box>
             </Paper>
-            </ButtonBase>
+            </Box>
         </Box>
     )
 }
