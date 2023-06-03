@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 const { initializeApp } = require('firebase-admin/app');
 //const { getAnalytics } = require('firebase-admin/analytics');
-const { getStorage, ref, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable, deleteObject } = require('firebase-admin/storage');
+const { getStorage, uploadBytes, uploadString, getDownloadURL, uploadBytesResumable, deleteObject } = require('firebase-admin/storage');
+const { ref } = require('firebase/storage');
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,7 +29,10 @@ const metadata = {
 
 const createStorageRef = (path, fileName) => {
   // BUG: ref is not a function
-    const storageRef = ref(storage, path + '/' + fileName);
+  // Maybe use something like a storage bucket?
+  // Maybe imports are wrong?
+  // 
+    const storageRef = ref(storage, 'images/' + path + '/' + fileName); //path is the post id. for example it should be saved to 'images/somepostid/space.jpg'
     return storageRef;
 }
 const uploadImageBytes = (file, path) => {
