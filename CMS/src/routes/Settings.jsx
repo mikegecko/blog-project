@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { router } from "../main";
 import jwt_decode from "jwt-decode";
 import PersonIcon from '@mui/icons-material/Person';
+import deleteUser from "../utils/userAPI"
 
 export default function Settings() {
 
@@ -12,6 +13,7 @@ export default function Settings() {
     const [token , setToken] = useState(localStorage.getItem('blog-token'));
     const [user, setUser] = useState({});
     const [userList, setUserList] = useState([]);
+    const [delUserID, setDelUserID] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,6 +31,17 @@ export default function Settings() {
         console.log('Logged out');
         logout();
         router.navigate('/login');
+    }
+
+    const onDeleteChange = (e) => {
+      const { userid } = e.targer.userid;
+      setDelUserID(userid);
+    }
+
+    const onDeleteSubmit = (e) => {
+      const res = deleteUser(delUserID);
+      res.then((data) => console.log(data)).catch((err) => console.log(err));
+      // Show snackbar for success / failure
     }
 
     const authStatus = () => {
@@ -149,7 +162,8 @@ export default function Settings() {
             <Typography>Delete User</Typography>
         </AccordionSummary>
         <AccordionDetails>
-
+            <TextField label="User ID" type="text" name="userid" onChange={onDeleteChange} />
+            <Button variant="contained" onSubmit={onDeleteSubmit}>Confirm Delete</Button>
         </AccordionDetails>
       </Accordion>
       <Accordion sx={{width: "100%"}} >
