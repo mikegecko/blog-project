@@ -59,7 +59,7 @@ export default function Root () {
                     </ToggleButtonGroup>
                 </Box>
             </Box>
-            <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '85vw'}}>
+            <Box className="Main" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '85vw', backgroundColor: 'background.main', color: 'text.primary'}}>
                 <Outlet />
             </Box>
         </Box>

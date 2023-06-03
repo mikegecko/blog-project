@@ -13,6 +13,7 @@ export const darkTheme = createTheme({
         main: '#c43349',
       },
       background: {
+        main: '#242424',
         default: '#121212',
       },
     },
