@@ -157,7 +157,7 @@ export default function Settings() {
 
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{width: "100%"}} disabled>
+      <Accordion sx={{width: "100%"}} >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Delete User</Typography>
         </AccordionSummary>
