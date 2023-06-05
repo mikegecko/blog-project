@@ -154,7 +154,7 @@ export default function Settings() {
             <Typography>Update User</Typography>
         </AccordionSummary>
         <AccordionDetails>
-
+          
         </AccordionDetails>
       </Accordion>
       <Accordion sx={{width: "100%"}} >
