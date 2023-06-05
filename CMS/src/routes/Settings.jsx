@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { router } from "../main";
 import jwt_decode from "jwt-decode";
 import PersonIcon from '@mui/icons-material/Person';
-import deleteUser from "../utils/userAPI"
+import { deleteUser } from "../utils/userAPI";
 
 export default function Settings() {
 
