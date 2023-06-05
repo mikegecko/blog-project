@@ -15,6 +15,10 @@ export default function Settings() {
     const [userList, setUserList] = useState([]);
     const [delUserID, setDelUserID] = useState(null);
 
+    const handleUserClick = (userid) => {
+      console.log(userid);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const res = createUser(newUser.username, newUser.password, newUser.email, newUser.name, newUser.isAdmin);
@@ -176,12 +180,12 @@ export default function Settings() {
             <List sx={{width: "100%"}}>
             {userList ? userList.map((user) => {
                 return(
-                    <ListItem key={user.id} disablePadding >
-                        <ListItemButton key={user.id}>
+                    <ListItem key={user._id} disablePadding >
+                        <ListItemButton key={user._id} onClick={(e) => handleUserClick(user._id)}>
                             <ListItemIcon>
                                 <PersonIcon />
                             </ListItemIcon>
-                            <ListItemText key={user.id} primary={user.username} secondary={user.email} />
+                            <ListItemText key={user._id} primary={user.username} secondary={user._id} />
                         </ListItemButton>
                     </ListItem>
                 )
