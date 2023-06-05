@@ -34,7 +34,7 @@ export default function Settings() {
     }
 
     const onDeleteChange = (e) => {
-      const { userid } = e.targer.userid;
+      const { userid } = e.target;
       setDelUserID(userid);
     }
 
@@ -162,8 +162,10 @@ export default function Settings() {
             <Typography>Delete User</Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <TextField label="User ID" type="text" name="userid" onChange={onDeleteChange} />
+          <Box sx={{display:  "flex", flexDirection: "column", alignItems: "center", gap: ".5rem", width: "100%"}}> 
+            <TextField label="User ID" type="text" name="userid" value={delUserID} onChange={onDeleteChange} />
             <Button variant="contained" onSubmit={onDeleteSubmit}>Confirm Delete</Button>
+          </Box>
         </AccordionDetails>
       </Accordion>
       <Accordion sx={{width: "100%"}} >
