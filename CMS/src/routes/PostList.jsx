@@ -44,7 +44,7 @@ export default function PostList() {
             {posts ? posts.map(post => {
                 return(
                     <Grid key={post.id} item xs={2} sm={4} md={4} lg={4} xl={4} >
-                        <PostCard onDeletePost={onDeletePost} post={post} />
+                        <PostCard key={post.id} onDeletePost={onDeletePost} post={post} />
                     </Grid>
                 )
             }) : 'No posts'}
