@@ -15,8 +15,13 @@ export default function Settings() {
     const [userList, setUserList] = useState([]);
     const [delUserID, setDelUserID] = useState(null);
 
-    const handleUserClick = (userid) => {
-      console.log(userid);
+    const handleUserClick = async(userid) => {
+      try{
+        const res = await navigator.clipboard.writeText(userid);
+        console.log(userid + " copied to clipboard");
+      } catch(error){
+        console.error(error);
+      }
     }
 
     const handleSubmit = (e) => {
