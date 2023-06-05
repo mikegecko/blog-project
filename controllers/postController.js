@@ -20,14 +20,18 @@ module.exports = {
     },
     createPost: async (req, res, next) => {
         // TODO: Use firebase to upload image and save url to post
-        const file = req.body.coverImage;
+        const file = req.body.coverImage; //File is a base64 string
         try{
-            const res = await firebase.uploadImageBase64(file, req.body.id);
-            console.log(res);
+            const newPost = new Post(req.body);
+            newPost.coverImage = null; //Set coverimage to null because we are using firebase to upload image
+            // Use firebase/google cloud storage to upload image and save url to post
+            const firebaseRes = await firebase.uploadFromMemory(file, newPost.title);
+            //newPost.coverImage = firebaseRes.url;
+            console.log(res + firebaseRes);
         }catch(error){
             console.log(error);
         }
-        //const newPost = new Post(req.body);
+        
         //newPost.save().then((post) => res.json(post)).catch((err) => next(err));
     },
     updatePost: async (req, res, next) => {
