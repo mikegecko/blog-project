@@ -1,5 +1,5 @@
 const Post = require('../models/Post');
-const firebase = require('../utils/firebase');
+const storage = require('../utils/storage');
 
 module.exports = {
     getAllPosts: async (req, res, next) => {
@@ -24,10 +24,10 @@ module.exports = {
         try{
             const newPost = new Post(req.body);
             newPost.coverImage = null; //Set coverimage to null because we are using firebase to upload image
-            // Use firebase/google cloud storage to upload image and save url to post
-            const firebaseRes = await firebase.uploadFromMemory(file, newPost.title);
-            //newPost.coverImage = firebaseRes.url;
-            console.log(res + firebaseRes);
+            // Use google cloud storage to upload image and save url to post
+            const storageRes = await storage.uploadFromMemory(file, newPost.title);
+            newPost.coverImage = await storage.generateSignedUrl(newPost.title);
+            console.log(storageRes + ' ' + newPost.coverImage);
         }catch(error){
             console.log(error);
         }
