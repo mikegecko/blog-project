@@ -1,13 +1,13 @@
 const {Storage} = require('@google-cloud/storage');
 
-const storage = new Storage();
 const bucketName = 'blog_image_bucket';
 const projectId = 'blog-project-389914';
+const storage = new Storage({projectId, keyFilename: './service-account.json'});
 
 async function uploadFromMemory(content, destFileName) {
     try{
         await storage.bucket(bucketName).file(destFileName).save(content);
-        console.log(`${destFileName} with contents ${content} uploaded to ${bucketName}.`);
+        //console.log(`${destFileName} with contents ${content} uploaded to ${bucketName}.`);
     }
     catch(error){
         console.error(error);
