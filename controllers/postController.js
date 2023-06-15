@@ -23,11 +23,13 @@ module.exports = {
         const file = req.body.coverImage; //File is a base64 string
         try{
             const newPost = new Post(req.body);
-            newPost.coverImage = null; //Set coverimage to null because we are using firebase to upload image
+            newPost.coverImage = null; //Set coverimage to null because we are using google cloud to upload image
+            //console.log(newPost, file);
             // Use google cloud storage to upload image and save url to post
             const storageRes = await storage.uploadFromMemory(file, newPost.title);
             newPost.coverImage = await storage.generateSignedUrl(newPost.title);
-            console.log(storageRes + ' ' + newPost.coverImage);
+            const res = await newPost.save();
+            //console.log(newPost.coverImage);
         }catch(error){
             console.log(error);
         }
